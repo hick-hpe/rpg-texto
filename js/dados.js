@@ -1,4 +1,24 @@
 const dados = {
+    // teste
+    "dados": {
+        "text": "> Teste do dado",
+        "choices": [],
+        "roll-results": {
+            "success": {
+                "text": "Sucesso :D !!!",
+                "target": "introducao"
+            },
+            "mixed": {
+                "text": "Eita, quase :/",
+                "target": "introducao"
+            },
+            "fail": {
+                "text": "Você falhou :(",
+                "target": "introducao"
+            }
+        },
+        "roll-dices": true
+    },
     "introducao": {
         "text": "A história se passa no interior do Rio Grande do Sul, numa cidade chamada Alvorada. Nela, há uma investigadora chamada Thalita Nunes, uma profissional no ramo há 10 anos, resolvendo diversos casos. Mas neste caso, foi uma surpresa: o gato Bisteca da senhora Dolores desapareceu misteriosamente nesta manhã. Ela veio até você aos prantos, implorando para que você encontre o Bisteca.",
         "choices": [
@@ -7,7 +27,7 @@ const dados = {
                 "target": "cena-01"
             }
         ],
-        "roll-dices": true
+        "roll-dices": false
     },
     "cena-01": {
         "text": "Você está na delegacia, no seu intervalo, aproveitando sua bela xícara de café, até que ouve um chamado no telefone. O telefone começa a tocar. O que vai fazer?",
@@ -87,6 +107,6 @@ const dados = {
                 "target": "casa-dolores"
             }
         ],
-        "roll-dices": true
+        "roll-dices": false
     }
 }
