@@ -1,0 +1,14 @@
+* {
+    font-family: "Comic Neue", cursive !important;
+}
+
+.descricao {
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 576px) {
+    .descricao {
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+}
