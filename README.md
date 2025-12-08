@@ -16,18 +16,27 @@ As cenas foram estruturadas no seguinte formato:
         ],
         "roll-dices": true,
         "roll-results": {
-            "success": "Texto para 10+",
-            "mixed": "Texto para 7-9",
-            "fail": "Texto para 6-"
-        }
-    },
-    "requires": ["item-necessário"]
+            "success": {
+                "text:": "Texto para 10+",
+                "target": "Próxima cena"
+            },
+            "mixed": {
+                "text": "Texto para 7-9",
+                "target": "Próxima cena"
+            },
+            "fail": {
+                "text": "Texto para 6-",
+                "target": "Próxima cena"
+            }
+        },
+        "requires": ["item-necessário"]
+    }
 }
 ```
 
 ### Explicação:
 
-- `screen-id`: É o identificador da cena
+- `scene-id`: É o identificador da cena
 - `text`: A narrativa principal daquela cena.
 Pode ser uma descrição, diálogos ou instruções.
 - `choices`: Lista de ações possíveis para o jogador.
@@ -44,3 +53,5 @@ Cada resultado define para qual cena o jogador vai dependendo da rolagem.
 - `requires`: indicar pré-requisitos necessários para que o jogador possa acessar aquela cena ou escolha.
 
 
+## Link
+🔗 Disponível em: <link>
