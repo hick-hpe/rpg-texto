@@ -12,8 +12,8 @@ const divAtributosJogador = document.querySelector('#atributos-jogador');
 let somaTotal = 0;
 let MIN_SUCCESS = 9;
 let MIN_MIXED = 6;
-let cenaAtual = "introducao";
-// let cenaAtual = "examinar-portao";
+// let cenaAtual = "introducao";
+let cenaAtual = "loja-marisa";
 let localStorageData = localStorage.getItem("jogador");
 if (!localStorageData) {
     window.location.href = 'atributos.html';
@@ -322,7 +322,7 @@ function atualizarTela(cenaID) {
     atualizarBotaoDados();
 
     // obtém a cena atual
-    objCenaAtual = dados[cenaID];
+    objCenaAtual = dados_cenas_01_02[cenaID] || dados_cenas_03_04_05[cenaID];
 
     console.log('cenaID: ', cenaID);
 
