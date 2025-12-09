@@ -416,7 +416,7 @@ const dados = {
                 Dolores confirma:
                 “Eu não tenho crianças aqui… e nunca vi esse adesivo.”
                 Seu instinto se afirma:
-                Uma criança esteve ali — recentemente — e estava com pressa.`,  
+                Uma criança esteve ali — recentemente — e estava com pressa.`,
         "choices": [
             {
                 "text": "Prosseguir para a loja da Dona Marisa",
@@ -450,7 +450,7 @@ const dados = {
                 Você percebe também que a terra próxima está um pouco remexida, sugerindo que alguém se ajoelhou ou caiu ali… mas não consegue determinar exatamente como ou por quê.
                 Ainda assim, a evidência é clara:
                 Uma criança esteve no quintal.
-                Mas você sente que algo está faltando, como se tivesse perdido um detalhe importante que estava logo ali.`,  
+                Mas você sente que algo está faltando, como se tivesse perdido um detalhe importante que estava logo ali.`,
         "choices": [
             {
                 "text": "Prosseguir para a loja da Dona Marisa",
@@ -491,7 +491,7 @@ const dados = {
                 Você até pega o adesivo, mas ele não te diz nada.
                 Poderia ser de uma criança… ou de um adulto desleixado… ou até do vento.
 
-                Você não consegue tirar nenhuma conclusão confiável — e essa incerteza te frustra profundamente`,  
+                Você não consegue tirar nenhuma conclusão confiável — e essa incerteza te frustra profundamente`,
         "choices": [
             {
                 "text": "Examinar o portão",
@@ -726,7 +726,6 @@ const dados = {
         ]
     },
 
-
     // ###################### verificar-cameras
     "verificar-cameras": {
         "text": "Não há câmeras na casa, mas a casa ao lado tem uma… que está desligada há semanas.",
@@ -749,6 +748,262 @@ const dados = {
             }
         ],
         "roll-dices": false
+    },
+
+    // ###################### analisar-chao
+    "analisar-chao": {
+        "title": "Cena 02 - Casa de Dolores",
+        "text": "Analisar o chão perto do portão - Teste de Investigação",
+        "choices": [],
+        "roll-dices": true,
+        "atributos-adicao": ["investigacao"],
+        "atributos-punicao": [],
+        "roll-results": {
+            "success": {
+                "text": "Você identifica algo incomum",
+                "target": "sucesso-analisar-chao"
+            },
+            "mixed": {
+                "text": "Uma pista parcial",
+                "target": "parcial-analisar-chao"
+            },
+            "fail": {
+                "text": "Você interpreta errado",
+                "target": "falha-analisar-chao"
+            }
+        }
+    },
+
+    // sucesso-analisar-chao
+    "sucesso-analisar-chao": {
+        "title": "Cena 02 - Casa de Dolores",
+        "text": `Ao se abaixar, você não olha apenas — você conecta os detalhes.
+                
+                Primeiro, vê as marcas leves no chão.
+                Não são pegadas, mas sim uma linha contínua, como se algo pequeno tivesse sido arrastado.
+                Depois, nota os pequenos grãos de ração espalhados, formando quase um “caminho”.
+                E então, o detalhe crucial:
+                
+                Um fiozinho de tecido azul, preso numa farpa do portão, tremulando levemente ao vento.
+                Cor comum… mas combinando perfeitamente com mochilas infantis que você já viu por aí.
+                
+                Combinando tudo, você percebe claramente:
+                ➡️ O arrasto começa na tigela do Bisteca e termina na rua.
+                ➡️ E segue justamente na direção da loja da Dona Marisa.
+                
+                É como se a criança tivesse derrubado ração, arrastado algo — talvez o brinquedo — e saído correndo.
+                Você praticamente visualiza a cena acontecendo na sua mente.`,
+        "choices": [
+            {
+                "text": "Examinar a fechadura do portão",
+                "target": "examinar-fechadura-portao"
+            },
+            {
+                "text": "Analisar a tigela",
+                "target": "analisar-tigela"
+            },
+            {
+                "text": "Conversar com um vizinho que está olhando curioso",
+                "target": "Conversar-vizinho"
+            },
+            {
+                "text": "Procurar pegadas ou marcas no muro",
+                "target": "procurar-pegadas"
+            }
+        ],
+        "roll-dices": false,
+    },
+    // parcial-analisar-chao
+    "parcial-analisar-chao": {
+        "title": "Cena 02 - Casa de Dolores",
+        "text": `Você encontra as mesmas pistas:
+                marcas leves no chão
+                ração espalhada
+                um fio de tecido azul
+                Mas não consegue montar o quebra-cabeça inteiro.
+                Percebe o fio preso no portão e pensa:
+                “Isso é de roupa? Mochila? Gato? Difícil dizer…”
+                A única coisa realmente clara é:
+                ➡️ As marcas vão em direção à calçada… mas você não tem certeza para onde depois disso.
+                Dolores observa você analisando e pergunta tímida:
+                [Dolores]
+                “Isso significa que alguém passou? Ou… que o Bisteca tentou sair?”
+                Você ainda não quer afirmar nada.`,
+        "choices": [
+            {
+                "text": "Examinar a fechadura do portão",
+                "target": "examinar-fechadura-portao"
+            },
+            {
+                "text": "Analisar a tigela",
+                "target": "analisar-tigela"
+            },
+            {
+                "text": "Conversar com um vizinho que está olhando curioso",
+                "target": "Conversar-vizinho"
+            },
+            {
+                "text": "Procurar pegadas ou marcas no muro",
+                "target": "procurar-pegadas"
+            }
+        ],
+        "roll-dices": false,
+    },
+    // falha-analisar-chao
+    "falha-analisar-chao": {
+        "title": "Cena 02 - Casa de Dolores",
+        "text": `A confusão pesa no seu raciocínio.
+                Você vê as marcas no chão, mas interpreta mal:
+                “Será que o gato arrastou o pote de ração?”
+                Os grãozinhos até fazem sentido — gatos são bagunceiros.
+                O fio azul, no entanto, te engana completamente:
+                você conclui que pode ser do próprio portão se desgastando.
+                Mas Dolores, observando atentamente, franze a testa:
+                [Dolores]
+                “Mas… isso não parece com tinta descascando, né? Parece tecido mesmo! Eu achei esse fiapinho hoje de manhã…”
+                Ela entrega outro detalhe contraditório:
+                [Dolores]
+                “E o pote estava na sombra. O Bisteca nunca arrasta o pote pra longe da sombra.”
+                Você percebe que errou — mas isso também te obriga a reconsiderar, o que aumenta sua investigação no futuro.`,
+        "choices": [
+            {
+                "text": "Examinar a fechadura do portão",
+                "target": "examinar-fechadura-portao"
+            },
+            {
+                "text": "Verificar se há câmeras na vizinhança",
+                "target": "verificar-cameras"
+            },
+            {
+                "text": "Analisar a tigela",
+                "target": "analisar-tigela"
+            },
+            {
+                "text": "Procurar pegadas ou marcas no muro",
+                "target": "procurar-pegadas"
+            }
+        ],
+        "roll-dices": false,
+    },
+
+
+    // ###################### Conversar-vizinho
+    "conversar-vizinho": {
+        "title": "Cena 02 - Casa de Dolores",
+        "text": `Você avista um senhor sentado na calçada. Você decide ir falar com ele.
+                [Thalita] Bom dia, senhor! 
+                [Vizinho] Oh, bom dia, como vai??
+                [Thalita] Gostaria de fazer algumas perguntas ao senhor.
+                [Vizinho] Claro, pode perguntar.
+                [Thalita] O gato da senhora Dolores sumiu esta manhã, o senhor lembra de ter visto algo?
+                [Vizinho] Bem, deixe-me ver…hm…Ah, eu vi uma criança correndo aqui mais cedo… parecia estar segurando um bicho. Achei que era um coelho! Hahaha!
+                [Thalita] Um gato branco pode parecer um coelho…
+                [Vizinho] Ele sempre passa naquela lojinha da esquina… deve gostar de animais.`,
+        "choices": [
+            {
+                "text": "Examinar a fechadura do portão",
+                "target": "examinar-fechadura-portao"
+            },
+            {
+                "text": "Analisar a tigela",
+                "target": "analisar-tigela"
+            },
+            {
+                "text": "Verificar se há câmeras na vizinhança",
+                "target": "verificar-cameras"
+            },
+            {
+                "text": "Procurar pegadas ou marcas no muro",
+                "target": "procurar-pegadas"
+            }
+        ],
+        "roll-dices": false
+    },
+
+    // ###################### procurar-pegadas
+    "procurar-pegadas": {
+        "title": "Cena 02 - Casa de Dolores",
+        "text": "Procurar pegadas ou marcas no muro - Teste de Investigação + Percepção",
+        "choices": [],
+        "roll-dices": true,
+        "atributos-adicao": ["investigacao", "intelecto "],
+        "atributos-punicao": ["confusao"],
+        "roll-results": {
+            "success": {
+                "text": "Você identifica algo incomum",
+                "target": "sucesso-procurar-pegadas"
+            },
+            "mixed": {
+                "text": "Uma pista parcial",
+                "target": "parcial-procurar-pegadas"
+            },
+            "fail": {
+                "text": "Você interpreta errado",
+                "target": "falha-procurar-pegadas"
+            }
+        }
+    },
+
+    // sucesso-procurar-pegadas
+    "sucesso-procurar-pegadas": {
+        "title": "Cena 02 - Casa de Dolores",
+        "text": `Você examina o muro com cuidado, passando a mão pelo reboco irregular.
+                Logo percebe algo que não é comum:
+                ➡️ Arranhões verticais, muito mais altos do que o Bisteca conseguiria alcançar.
+                Isso indica claramente que alguém levantou o gato — ou levantou alguma coisa — até o topo do muro.
+                Ao olhar mais de perto, encontra um segundo detalhe:
+                ➡️ Um pó fino e cinzento preso nas pontas dos arranhões, igual ao pó da calçada próxima à pet shop da Marisa.
+                É como se algo tivesse sido arrastado ou apoiado lá antes de vir parar aqui.
+                Você não tem mais dúvidas: o caminho aponta para a loja`,
+        "choices": [
+            {
+                "text": "Ir à loja",
+                "target": "Loja-marisa"
+            }
+        ],
+        "roll-dices": false,
+    },
+    // parcial-procurar-pegadas
+    "parcial-procurar-pegadas": {
+        "title": "Cena 02 - Casa de Dolores",
+        "text": `Você observa os arranhões no muro.
+                Eles são recentes… talvez.
+                Ou talvez só pareçam recentes por causa da luz.
+                Enquanto tenta decidir, algo chama sua atenção no chão, encostado na base do muro:
+                ➡️ Um pedacinho de plástico colorido, provavelmente vindo de um brinquedo infantil.
+                Dolores também se inclina para olhar e murmura:
+                [Dolores]
+                “Eu já vi desses… a loja da esquina vende um monte de brinquedinho barato assim.”
+                Não é prova definitiva, mas é mais um indício apontando para o mesmo lugar.`,
+        "choices": [
+            {
+                "text": "Ir à loja",
+                "target": "Loja-marisa"
+            }
+        ],
+        "roll-dices": false,
+    },
+    // falha-procurar-pegadas
+    "falha-procurar-pegadas": {
+        "title": "Cena 02 - Casa de Dolores",
+        "text": `Você examina os arranhões… mas sinceramente, parecem desgaste normal.
+                O muro é velho, afinal.
+                “Deve ser coisa antiga, nada relevante.”
+                É o que você pensa.
+                Mas Dolores, nervosa e insistente, quase te interrompe:
+                [Dolores]
+                “Mas olha isso aqui! Eu achei no quintal hoje mais cedo!”
+                Ela mostra um pequeno brinquedinho de plástico, sujo de terra.
+                [Dolores]
+                “Isso é vendido lá na pet shop! Tem certeza que não tem nada acontecendo? Por favor, vá falar com a Marisa!”
+                Mesmo não encontrando nada útil, você é empurrada emocionalmente rumo à mesma direção.`,
+        "choices": [
+            {
+                "text": "Ir à loja",
+                "target": "Loja-marisa"
+            }
+        ],
+        "roll-dices": false,
     },
 
 

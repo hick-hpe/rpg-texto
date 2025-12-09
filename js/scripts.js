@@ -12,8 +12,8 @@ const divAtributosJogador = document.querySelector('#atributos-jogador');
 let somaTotal = 0;
 let MIN_SUCCESS = 9;
 let MIN_MIXED = 6;
-// let cenaAtual = "introducao";
-let cenaAtual = "examinar-portao";
+let cenaAtual = "introducao";
+// let cenaAtual = "examinar-portao";
 let localStorageData = localStorage.getItem("jogador");
 if (!localStorageData) {
     window.location.href = 'atributos.html';
