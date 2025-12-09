@@ -518,7 +518,7 @@ const dados = {
         "text": "Perguntar mais - Teste de Investigação + Percepção",
         "choices": [],
         "roll-dices": true,
-        "atributos-adicao": ["investigacao", "percepcao"],
+        "atributos-adicao": ["investigacao", "intelecto"],
         "atributos-punicao": ["confusao"],
         "roll-results": {
             "success": {
@@ -536,34 +536,222 @@ const dados = {
         }
     },
     // sucesso perguntar-mais
+    "sucesso-perguntar-mais": {
+        "text": `Você se aproxima de Dolores com postura firme, fazendo perguntas diretas, mas acolhedoras.
+                Ela percebe que você está realmente tentando ajudá-la — e isso faz com que relaxe um pouco.
+                Ao responder, você nota até detalhes que ela não queria admitir de início.
+                Dolores respira fundo e conta:
+                “Vi o Bisteca ontem à noite. Ele dormiu perto da janela, como sempre.”
+
+                “Ele quase nunca sai do quintal.”
+
+                “Teve… um homem estranho. Passou duas vezes perguntando se eu tinha algo de valor no quintal.”
+                Seu tom mostra que ela ficou mais incomodada do que havia dito antes.
+
+                “Ontem à tarde ouvi um estalo na cerca. Achei que fosse o vento… mas agora não tenho tanta certeza.”
+
+                Você percebe claramente que Dolores está com medo — não do gato desaparecer, mas de estar sendo observada há dias.
+                Com sua habilidade, você faz as perguntas certas e extrai exatamente o que ela sabe.`,
+        "choices": [
+            {
+                "text": "Continuar investigando",
+                "target": "continuar-investigando"
+            }
+        ]
+    },
     // parcial perguntar-mais
+    "parcial-perguntar-mais": {
+        "text": `Você conversa com Dolores, e ela responde prontamente, mas parece esquecer alguns detalhes até que você a relembra.
+                Ela diz:
+                Viu o gato ontem à noite dormindo na janela.
+
+                Ele quase nunca sai do quintal.
+
+                Um homem estranho passou perguntando se ela tinha algo de valor, mas ela fala isso de forma vaga, como se não lembrasse direito.
+
+                Ouviu um estalo na cerca e achou que fosse nada.
+
+                Você consegue montar uma ideia geral do que aconteceu, mas sente que faltou alguma coisa — algum detalhe pequeno que ela deixou escapar.`,
+        "choices": [
+            {
+                "text": "Continuar investigando",
+                "target": "continuar-investigando"
+            }
+        ]
+    },
     // falha perguntar-mais
+    "falha-perguntar-mais": {
+        "text": `Você tenta interrogar Dolores, mas sua mente embaralhada não ajuda.
+                As perguntas saem na ordem errada ou parecem mais acusatórias do que você pretendia.
+                Dolores fica desconfortável.
+                As respostas dela vêm curtas, truncadas, e você não consegue interpretar direito:
+                Diz que viu o gato ontem, mas muda de horário no meio da explicação.
+
+                Afirma que o gato não sai do quintal, mas parece hesitar.
+
+                Fala sobre um homem estranho, mas não lembra se foi “duas vezes” ou “uma vez só”.
+
+                O estalo na cerca vira algo confuso — talvez tenha sido o vento, talvez não.
+
+                No fim, você não tem certeza se ela está escondendo algo ou se você simplesmente não conseguiu conduzir direito a conversa.`,
+        "choices": [
+            {
+                "text": "Continuar investigando",
+                "target": "continuar-investigando"
+            }
+        ]
+    },
     // ############### continuar investigando
     "continuar-investigando": {
         "title": "Cena 02 - Casa de Dolores",
         "text": "Continuar investigando - Teste de Investigação + Percepção",
+        "choices": [
+            {
+                "text": "Examinar a fechadura do portão",
+                "target": "examinar-fechadura-portao"
+            },
+            {
+                "text": "Verificar se há câmeras na vizinhança",
+                "target": "verificar-cameras"
+            },
+            {
+                "text": "Analisar o chão perto do portão",
+                "target": "analisar-chao"
+            },
+            {
+                "text": "Conversar com um vizinho que está olhando curioso",
+                "target": "Conversar-vizinho"
+            },
+            {
+                "text": "Procurar pegadas ou marcas no muro",
+                "target": "procurar-pegadas"
+            }
+        ],
+        "roll-dices": false,
+    },
+    // ################# Examinar a fechadura do portão
+    "examinar-fechadura-portao": {
+        "title": "Cena 02 - Casa de Dolores",
+        "text": "Examinar a fechadura do portão - Teste de Investigação + Percepção",
         "choices": [],
         "roll-dices": true,
-        "atributos-adicao": ["investigacao", "percepcao"],
+        "atributos-adicao": ["percepcao"],
         "atributos-punicao": ["confusao"],
         "roll-results": {
             "success": {
                 "text": "Você identifica algo incomum",
-                "target": "sucesso-observar-quintal"
+                "target": "sucesso-examinar-fechadura"
             },
             "mixed": {
                 "text": "Uma pista parcial",
-                "target": "parcial-observar-quintal"
+                "target": "parcial-examinar-fechadura"
             },
             "fail": {
                 "text": "Você interpreta errado",
-                "target": "falha-observar-quintal"
+                "target": "falha-examinar-fechadura"
             }
         }
     },
-    // sucesso continuar-investigando
-    // parcial continuar-investigando
-    // falha continuar-investigando
+    // sucesso examinar-fechadura
+    "sucesso-examinar-fechadura": {
+        "text": `Você se aproxima da fechadura com cuidado, examinando cada detalhe: a borda do metal, a pintura e o encaixe do mecanismo.
+                Nada ali indica arrombamento: nenhuma marca de chave forçada, nenhum arranhão profundo, nenhuma folga incomum.
+                Mas então você nota algo que alguém distraído jamais veria:
+                Um pequeno pingo de tinta vermelha, quase invisível, perto do encaixe da fechadura.
+                A mesma cor do brinquedinho de ratinho encontrado — ou mencionado por Dolores.
+                É forte demais para ser coincidência.
+                Você rapidamente conecta as pistas: a coisa que passou pelo portão estava em contato com o brinquedo.
+                Alguém — ou algo — bateu ali, mas não com força suficiente para quebrar.
+                Dolores observa você analisar e parece impressionada com sua precisão.`,
+        "choices": [
+            {
+                "text": "Verificar se há câmeras na vizinhança",
+                "target": "verificar-cameras"
+            },
+            {
+                "text": "Analisar o chão perto do portão",
+                "target": "analisar-chao"
+            },
+            {
+                "text": "Conversar com um vizinho que está olhando curioso",
+                "target": "Conversar-vizinho"
+            },
+            {
+                "text": "Procurar pegadas ou marcas no muro",
+                "target": "procurar-pegadas"
+            }
+        ],
+        "roll-dices": false
+    },
+    // parcial examinar-fechadura
+    "parcial-examinar-fechadura": {
+        "text": `Você examina a fechadura, mas ela parece completamente normal à primeira vista.
+                Quase desiste, até perceber um pequeno arranhão — fino, quase imperceptível.
+                Não parece de ferramenta ou de tentativa de invasão.
+                Parece mais…
+                uma marca de unha. Ou pata.
+                Pode ter sido o próprio Bisteca tentando escapar, arranhando de leve o metal.
+                Ou algo do tamanho dele tentando entrar.
+                Você não tem certeza.
+                É uma pista, mas não muito clara.`,
+        "choices": [
+            {
+                "text": "Verificar se há câmeras na vizinhança",
+                "target": "verificar-cameras"
+            },
+            {
+                "text": "Analisar o chão perto do portão",
+                "target": "analisar-chao"
+            },
+            {
+                "text": "Conversar com um vizinho que está olhando curioso",
+                "target": "Conversar-vizinho"
+            },
+            {
+                "text": "Procurar pegadas ou marcas no muro",
+                "target": "procurar-pegadas"
+            }
+        ],
+        "roll-dices": false
+    },
+    // falha examinar-fechadura
+    "falha-examinar-fechadura": {
+        "text": `Você acha que alguém tentou arrombar a casa (erro que aumenta a tensão), e Dolores confirma nervosa:
+                    "É por isso que precisam ir falar com a Marisa! Ela conhece todo mundo do bairro!"`,
+        "choices": [
+            {
+                "text": "Prosseguir para a loja da Dona Marisa",
+                "target": "loja-marisa"
+            }
+        ]
+    },
+
+
+    // ###################### verificar-cameras
+    "verificar-cameras": {
+        "text": "Não há câmeras na casa, mas a casa ao lado tem uma… que está desligada há semanas.",
+        "choices": [
+            {
+                "text": "Examinar a fechadura do portão",
+                "target": "examinar-fechadura-portao"
+            },
+            {
+                "text": "Analisar o chão perto do portão",
+                "target": "analisar-chao"
+            },
+            {
+                "text": "Conversar com um vizinho que está olhando curioso",
+                "target": "Conversar-vizinho"
+            },
+            {
+                "text": "Procurar pegadas ou marcas no muro",
+                "target": "procurar-pegadas"
+            }
+        ],
+        "roll-dices": false
+    },
+
+
     // ###########################################################################
     // Cena 3: Pet Shop da Marisa
     // ###########################################################################
