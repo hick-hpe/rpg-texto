@@ -1,4 +1,4 @@
-// setar como vazio
+// Resetar atributos salvos
 localStorage.setItem("jogador", "");
 
 let jogador = {
@@ -15,6 +15,14 @@ const listaAtributos = document.getElementById("lista-atributos");
 const pontosRestantes = document.getElementById("pontos-restantes");
 const btnJogarContainer = document.getElementById("btn-jogar-container");
 
+function habilitarBotaoIniciarJogo() {
+    btnJogarContainer.classList.remove("d-none");
+}
+
+function desabilitarBotaoIniciarJogo() {
+    btnJogarContainer.classList.add("d-none");
+}
+
 function atualizarTela() {
     listaAtributos.innerHTML = "";
 
@@ -27,7 +35,6 @@ function atualizarTela() {
 
         linha.innerHTML = `
           <span class="attr-name">${atributo}</span>
-
           <button class="btn btn-sm btn-light" ${!podeAlterar ? "disabled" : ""} data-attr="${atributo}" data-op="minus">−</button>
           <span class="attr-value">${valor}</span>
           <button class="btn btn-sm btn-light" ${!podeAlterar ? "disabled" : ""} data-attr="${atributo}" data-op="plus">+</button>
@@ -57,6 +64,10 @@ document.addEventListener("click", (e) => {
         pontosDisponiveis++;
     }
 
+    // Sempre que alterar qualquer atributo:
+    desabilitarBotaoIniciarJogo();          // Bloqueia o botão "Jogar"
+    localStorage.setItem("jogador", "");    // Limpa o jogador salvo
+
     atualizarTela();
 });
 
@@ -68,24 +79,23 @@ document.getElementById("confirmar").addEventListener("click", () => {
     // Se ainda há pontos sobrando
     if (pontosDisponiveis > 0) {
         alertBox.innerHTML = `
-            <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+            <div class="alert alert-warning fade show mt-3" role="alert">
                 Você ainda tem <strong>${pontosDisponiveis}</strong> ponto(s) para distribuir!
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         `;
+        desabilitarBotaoIniciarJogo();
         return;
     }
 
-    // Salvar corretamente
+    // Salvar atributos
     localStorage.setItem("jogador", JSON.stringify(jogador));
 
     // Mensagem de sucesso
     alertBox.innerHTML = `
-        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        <div class="alert alert-success fade show mt-3" role="alert">
             Atributos confirmados com sucesso!
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
-    `;
+      `;
 
-    btnJogarContainer.classList.remove("d-none");
+    habilitarBotaoIniciarJogo();
 });
