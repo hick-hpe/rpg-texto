@@ -1,15 +1,17 @@
 // referencias HTML
+const divH1NomeCena = document.querySelector('#nome-cena');
 const divDescricao = document.querySelector('#descricao');
 const divListEscolhas = document.querySelector('#list-escolhas');
 const divSessaoDados = document.querySelector('#sessao-dados');
 const btnRolarDados = document.querySelector('#rolar');
 const divResultDados = document.querySelector('#dados');
 
-// variavel da soma dos dados
+// variaveis globais
 let somaDosDados = 0;
 let MIN_SUCCESS = 9;
 let MIN_MIXED = 6;
 let cenaAtual = "introducao";
+let jogador = JSON.parse(localStorage.getItem("jogador"))
 
 // validar formato da cena
 function cenaEhValida(cena, cenaID) {
@@ -20,8 +22,13 @@ function cenaEhValida(cena, cenaID) {
         return false;
     }
 
+    // title precisa existir e ser string
+    if (typeof cena.title !== "string" || cena.title.trim() === "") {
+        erros.push(`Campo "title" ausente ou inválido na cena "${cenaID}".`);
+    }
+
     // text precisa existir e ser string
-    if (typeof cena.text !== "string") {
+    if (typeof cena.text !== "string" || cena.text.trim() === "") {
         erros.push(`Campo "text" ausente ou inválido na cena "${cenaID}".`);
     }
 
@@ -71,7 +78,7 @@ function escolhaJogador(target) {
     atualizarTela(target);
 }
 
-// classificar decisao
+// classificar escolha
 function classificarEscolhaJogador(valorDado) {
     if (valorDado >= MIN_SUCCESS)
         return "success";
@@ -84,17 +91,19 @@ function classificarEscolhaJogador(valorDado) {
 function obterResultadoDados() {
     const d1 = Math.floor(Math.random() * 6) + 1;
     const d2 = Math.floor(Math.random() * 6) + 1;
-
-    return { d1, d2, soma: d1 + d2 };
+    const soma = d1 + d2
+    return { d1, d2, soma };
 }
 
 // evento de rolar os dados
-btnRolarDados.addEventListener("click", () => {
+function rolarOsDados() {
     const { d1, d2, soma } = obterResultadoDados();
-    somaDosDados = soma;
     divResultDados.innerText = `${d1} + ${d2} = ${soma}`;
+    somaDosDados = soma;
+    btnRolarDados.disabled = true;
     acaoAposRolarOsDados();
-});
+}
+btnRolarDados.addEventListener("click", rolarOsDados);
 
 // ação após rolar os dados
 function acaoAposRolarOsDados() {
@@ -113,6 +122,9 @@ function acaoAposRolarOsDados() {
 
     // criar botao para avancar de acordo com o resultado
     atualizarBotoes([objResultado]);
+
+    console.log('classificacaoDado:', classificacaoDado);
+    console.log('objResultado:', objResultado);
 }
 
 // criar gif loading
@@ -170,13 +182,25 @@ function exibirSessaoDados(exibir) {
         divSessaoDados.style.display = "none";
 }
 
+// atualizar botao dos dados
+function atualizarBotaoDados() {
+    divResultDados.textContent = '🎲 🎲';
+    btnRolarDados.disabled = false;
+}
+
 // atualizar tela
 function atualizarTela(cenaID) {
+    // atualizar botao dos dados
+    atualizarBotaoDados();
+
     // obtém a cena atual
     const cena = dados[cenaID];
 
     // validar cena
     if (!cenaEhValida(cena, cenaID)) return;
+
+    // atualizar título
+    divH1NomeCena.textContent = cena.title;
 
     // atualizar descrição
     divDescricao.innerHTML = cena.text.replace(/\n/g, "<br/>");

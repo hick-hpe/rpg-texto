@@ -28,8 +28,7 @@ As cenas foram estruturadas no seguinte formato:
                 "text": "Texto para 6-",
                 "target": "Próxima cena"
             }
-        },
-        "requires": ["item-necessário"]
+        }
     }
 }
 ```
@@ -50,8 +49,6 @@ Cada resultado define para qual cena o jogador vai dependendo da rolagem.
     - `success`: Cena que ocorre se o jogador tirar um resultado alto/bom no dado.
     - `mixed`: Cena que ocorre quando o jogador teve um sucesso parcial.
     - `fail`: Cena para quando o jogador falha completamente.
-- `requires`: indicar pré-requisitos necessários para que o jogador possa acessar aquela cena ou escolha.
-
 
 ## Link
 🔗 Disponível em: <link>

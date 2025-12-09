@@ -3,12 +3,17 @@
 }
 
 .descricao {
+    max-height: 60vh;
     overflow-y: auto;
 }
 
-@media screen and (max-width: 576px) {
+li {
+    margin: 0;
+}
+
+/* @media screen and (max-width: 576px) {
     .descricao {
-        max-height: 50vh;
+        max-height: 70vh;
         overflow-y: auto;
     }
-}
+} */
