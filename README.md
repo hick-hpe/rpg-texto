@@ -7,6 +7,7 @@ As cenas foram estruturadas no seguinte formato:
 ```json
 {
     "scene-id": {
+        "title": "Título da cena",
         "text": "Descrição da cena",
         "choices": [
             {
@@ -35,6 +36,7 @@ As cenas foram estruturadas no seguinte formato:
 
 ### Explicação:
 
+- `title`: Título da cena
 - `scene-id`: É o identificador da cena
 - `text`: A narrativa principal daquela cena.
 Pode ser uma descrição, diálogos ou instruções.

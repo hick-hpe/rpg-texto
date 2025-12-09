@@ -5,13 +5,20 @@ const divListEscolhas = document.querySelector('#list-escolhas');
 const divSessaoDados = document.querySelector('#sessao-dados');
 const btnRolarDados = document.querySelector('#rolar');
 const divResultDados = document.querySelector('#dados');
+const divAtributosInfluenciadores = document.querySelector('#atributos-influenciadores');
 
 // variaveis globais
-let somaDosDados = 0;
+let somaTotal = 0;
 let MIN_SUCCESS = 9;
 let MIN_MIXED = 6;
 let cenaAtual = "introducao";
-let jogador = JSON.parse(localStorage.getItem("jogador"))
+// let cenaAtual = "examinar-portao";
+let localStorageData = localStorage.getItem("jogador");
+if (!localStorageData) {
+    window.location.href = 'atributos.html';
+}
+let jogador = JSON.parse(localStorageData)
+let objCenaAtual;
 
 // validar formato da cena
 function cenaEhValida(cena, cenaID) {
@@ -59,6 +66,20 @@ function cenaEhValida(cena, cenaID) {
                 }
             });
         }
+
+        // se tem "atributos-adicao" e "atributos-punicao" e são listas
+        ["atributos-adicao", "atributos-punicao"].forEach(chave => {
+            // verificar se existe a chave
+            if (!cena.hasOwnProperty(chave)) {
+                erros.push(`Cena "${cenaID}" usa dados mas não tem "${chave}".`);
+                return;
+            }
+
+            // verificar se são listas
+            if (!Array.isArray(cena[chave])) {
+                erros.push(`Campo "${chave}" da cena "${cenaID}" não é uma lista!!!`);
+            }
+        });
     }
 
     // se houver erros, mostrar e bloquear
@@ -98,9 +119,14 @@ function obterResultadoDados() {
 // evento de rolar os dados
 function rolarOsDados() {
     const { d1, d2, soma } = obterResultadoDados();
-    divResultDados.innerText = `${d1} + ${d2} = ${soma}`;
-    somaDosDados = soma;
+    const atributosAdicao = objCenaAtual["atributos-adicao"];
+    const atributosPunicao = objCenaAtual["atributos-punicao"];
+    const numPontosAdicionais = atributosAdicao.reduce((acc, curr) => acc + (jogador[curr] || 0), 0);
+    const numPontosPunicao = atributosPunicao.reduce((acc, curr) => acc + (jogador[curr] || 0), 0);
+    somaTotal = (soma + numPontosAdicionais) - numPontosPunicao;
+    divResultDados.innerText = `${d1} + ${d2} = ${somaTotal}`;
     btnRolarDados.disabled = true;
+    criarAvisoAtributosQueInfluenciaramResultado();
     acaoAposRolarOsDados();
 }
 btnRolarDados.addEventListener("click", rolarOsDados);
@@ -114,7 +140,7 @@ function acaoAposRolarOsDados() {
     const resultados = cena["roll-results"];
 
     // pega a cena de acordo com o valor do dado
-    const classificacaoDado = classificarEscolhaJogador(somaDosDados);
+    const classificacaoDado = classificarEscolhaJogador(somaTotal);
     const objResultado = resultados[classificacaoDado];
 
     // excluir aviso
@@ -152,6 +178,37 @@ function criarAvisoEsperandoJogarDados() {
     wrapper.appendChild(child);
     wrapper.appendChild(gif);
     return wrapper;
+}
+
+// criar aviso atributos que influenciaram o resultado
+function criarAvisoAtributosQueInfluenciaramResultado() {
+    const atributosAdicao = objCenaAtual["atributos-adicao"] || [];
+    const atributosPunicao = objCenaAtual["atributos-punicao"] || [];
+
+    atributosAdicao.forEach(attr => {
+        if (jogador[attr] > 0) {
+            const divContentHTML = `
+            <div class="alert alert-success mt-3 text-center" role="alert">
+                <div class="d-flex justify-content-center align-items-center gap-2">
+                    <span class="fs-4"><strong>+${jogador[attr]}</strong> ${attr}</span>
+                </div>
+            </div>
+        `;
+            divAtributosInfluenciadores.innerHTML = divContentHTML;
+        }
+    });
+    atributosPunicao.forEach(attr => {
+        if (jogador[attr] > 0) {
+            const divContentHTML = `
+            <div class="alert alert-danger mt-3 text-center" role="alert">
+                <div class="d-flex justify-content-center align-items-center gap-2">
+                    <span class="fs-4"><strong>-${jogador[attr]}</strong> ${attr}</span>
+                </div>
+            </div>
+        `;
+            divAtributosInfluenciadores.innerHTML = divContentHTML;
+        }
+    });
 }
 
 // cria o botao
@@ -194,25 +251,27 @@ function atualizarTela(cenaID) {
     atualizarBotaoDados();
 
     // obtém a cena atual
-    const cena = dados[cenaID];
+    objCenaAtual = dados[cenaID];
+
+    console.log('cenaID: ', cenaID);
 
     // validar cena
-    if (!cenaEhValida(cena, cenaID)) return;
+    if (!cenaEhValida(objCenaAtual, cenaID)) return;
 
     // atualizar título
-    divH1NomeCena.textContent = cena.title;
+    divH1NomeCena.textContent = objCenaAtual.title;
 
     // atualizar descrição
-    divDescricao.innerHTML = cena.text.replace(/\n/g, "<br/>");
+    divDescricao.innerHTML = objCenaAtual.text.replace(/\n/g, "<br/>");
 
     // verifica se usa dados
-    const cenaUsaDados = cena["roll-dices"];
+    const cenaUsaDados = objCenaAtual["roll-dices"];
     if (cenaUsaDados) {
         divDescricao.appendChild(criarAvisoEsperandoJogarDados());
     }
 
     // atualizar botões de escolhas
-    atualizarBotoes(cena["choices"]);
+    atualizarBotoes(objCenaAtual["choices"]);
 
     // flag para exbir ou não os dados
     exibirSessaoDados(cenaUsaDados);
