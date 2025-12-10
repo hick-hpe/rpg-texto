@@ -89,6 +89,7 @@ modal.addEventListener('show.bs.modal', (e) => {
     descricaoAtributo.innerText = explicacoesAtributos[atributo];
 });
 
+// aumentar/diminuir valores dos atributos
 document.addEventListener("click", (e) => {
     if (!e.target.dataset.op) return;
 
@@ -102,7 +103,7 @@ document.addEventListener("click", (e) => {
         pontosDisponiveis--;
     }
 
-    if (operacao === "minus" && jogador[atributo] > 0) {
+    if (operacao === "minus" && jogador[atributo] > 1) {
         jogador[atributo]--;
         pontosDisponiveis++;
     }
