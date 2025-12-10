@@ -16,7 +16,7 @@ let MIN_partial_3_CHOICES = 6;
 let MIN_SUCCESS_2_CHOICES = 7;
 // let cenaID = "introducao";
 // let cenaID = "continuar-examinar-area-loja";
-let cenaID = "investigacao-bairro";
+let cenaID = "tentar-localizar-casa-garoto";
 let localStorageData = localStorage.getItem("jogador");
 if (!localStorageData) {
     window.location.href = 'atributos.html';
@@ -25,13 +25,13 @@ let jogador = JSON.parse(localStorageData)
 let objCena;
 let atributosAdicao;
 let atributosDescontado;
-let cenasVistas = new Set(cenaID);
+let cenasVistas = new Set();
 let statusDecisaoJogador = '';
 
 // buscar cena pelo ID
 function buscarCenaPeloID(cenaID) {
     return (
-        dados_cenas_01_02[cenaID] || 
+        dados_cenas_01_02[cenaID] ||
         dados_cenas_03[cenaID] ||
         dados_cenas_04_05[cenaID]
     );
@@ -275,7 +275,6 @@ function cenaEhValida(cena, cenaID) {
 // atualiza interface ao clicar nas opções
 function escolhaJogador(target) {
     cenaID = target;
-    cenasVistas.add(target);
     atualizarInterface(target);
 }
 
@@ -475,10 +474,9 @@ function atualizarBotoes(listButtons) {
     divListEscolhas.innerHTML = '';
 
     listButtons.forEach(button => {
-        if (podeCriarBotao(button)) {
+        if (podeCriarBotao(button))
             divListEscolhas.appendChild(criarBotao(button));
-        }
-    })
+    });
 }
 
 // exibir ou não a sessao dados
@@ -529,6 +527,11 @@ function atualizarInterface(cenaID) {
 
     // flag para exbir ou não os dados
     exibirSessaoDados(cenaUsaDados);
+
+    // marcar cena como "vista"
+    cenasVistas.add(cenaID);
+
+    console.log('cenasVistas: ', cenasVistas);
 }
 
 // começar

@@ -1,5 +1,11 @@
+// referencias HTML
+const tituloAtributo = document.querySelector('#tituloAtributo');
+const descricaoAtributo = document.querySelector('#descricaoAtributo');
+const modal = document.querySelector('#modal-descricao');
+
 // Resetar atributos salvos
 localStorage.setItem("jogador", "");
+let nomeAtributoSelecionado = '';
 
 let jogador = {
     investigacao: 1,
@@ -8,6 +14,14 @@ let jogador = {
     confusao: 1,
     social: 1
 };
+
+let explicacoesAtributos = {
+    investigacao: "Capacidade de encontrar pistas e analisar detalhes.",
+    intelecto: "Raciocínio lógico e habilidade de conectar informações.",
+    percepcao: "Atenção ao ambiente e sensibilidade a sinais sutis.",
+    confusao: "Nível de desorientação; quanto maior, mais erros e falhas.",
+    social: "Habilidade de conversar, convencer e interpretar pessoas."
+}
 
 const atributosFormatados = {
     "investigacao": "Investigação",
@@ -42,10 +56,22 @@ function atualizarTela() {
         linha.className = "attr-row";
 
         linha.innerHTML = `
-          <span class="attr-name">${atributosFormatados[atributo]}</span>
-          <button class="btn btn-sm btn-light" ${!podeAlterar ? "disabled" : ""} data-attr="${atributo}" data-op="minus">−</button>
-          <span class="attr-value">${valor}</span>
-          <button class="btn btn-sm btn-light" ${!podeAlterar ? "disabled" : ""} data-attr="${atributo}" data-op="plus">+</button>
+            <span class="attr-name">
+                <button 
+                    type="button" 
+                    class="btn btn-link p-0 m-0 attr-info-btn" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#modal-descricao"
+                    data-attr="${atributo}"
+                >
+                    <i class="bi bi-info-circle text-primary"></i>
+                </button>
+                ${atributosFormatados[atributo]}
+            </span>
+
+            <button class="btn btn-sm btn-light" ${!podeAlterar ? "disabled" : ""} data-attr="${atributo}" data-op="minus">−</button>
+            <span class="attr-value">${valor}</span>
+            <button class="btn btn-sm btn-light" ${!podeAlterar ? "disabled" : ""} data-attr="${atributo}" data-op="plus">+</button>
         `;
 
         listaAtributos.appendChild(linha);
@@ -53,6 +79,15 @@ function atualizarTela() {
 
     pontosRestantes.innerText = pontosDisponiveis;
 }
+
+// evento ao abrir o modal
+modal.addEventListener('show.bs.modal', (e) => {
+    const botao = e.relatedTarget; // botão que abriu o modal
+    const atributo = botao.getAttribute("data-attr");
+
+    tituloAtributo.innerText = atributosFormatados[atributo];
+    descricaoAtributo.innerText = explicacoesAtributos[atributo];
+});
 
 document.addEventListener("click", (e) => {
     if (!e.target.dataset.op) return;
