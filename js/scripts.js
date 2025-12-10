@@ -14,9 +14,9 @@ let somaTotal = 0;
 let MIN_SUCCESS_3_CHOICES = 9;
 let MIN_partial_3_CHOICES = 6;
 let MIN_SUCCESS_2_CHOICES = 7;
-let cenaID = "introducao";
+// let cenaID = "introducao";
 // let cenaID = "continuar-examinar-area-loja";
-// let cenaID = "abrandar-confusao";
+let cenaID = "acreditar-na-marisa";
 let localStorageData = localStorage.getItem("jogador");
 if (!localStorageData) {
     window.location.href = 'atributos.html';
@@ -58,11 +58,19 @@ function atualizarAtributosAdicionaisEPunicao() {
 // adicionar/diminuir atributos do jogador
 function alterarAtributosJogador() {
     // aumentar??
-    // atributo-add
+    if (Object.hasOwn(objCena, "atributos-add")) {
+        const atributosLess = objCena["atributos-add"];
+        Object.keys(atributosLess).forEach(attr => {
+            if (jogador[attr]) {
+                jogador[attr] += atributosLess[attr];
+                console.log('ATTR-ADD: ', attr);
+            }
+        });
+    }
 
     // diminuir
-    if (Object.hasOwn(objCena, "atributo-less")) {
-        const atributosLess = objCena["atributo-less"];
+    if (Object.hasOwn(objCena, "atributos-less")) {
+        const atributosLess = objCena["atributos-less"];
         Object.keys(atributosLess).forEach(attr => {
             if (jogador[attr]) {
                 jogador[attr] -= atributosLess[attr];

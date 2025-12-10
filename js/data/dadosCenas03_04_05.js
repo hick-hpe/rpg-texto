@@ -532,7 +532,7 @@ const dados_cenas_03_04_05 = {
                 Diego observa, tenso, mas não ousa segui-la.`,
         "choices": [],
         "roll-dices": false,
-        "atributo-less": {
+        "atributos-less": {
             "confusao": 1,
             "social": 2
         }
@@ -655,20 +655,7 @@ const dados_cenas_03_04_05 = {
         ],
         "roll-dices": false
     },
-    // ############### acreditar-na-dolores
-    "acreditar-na-dolores": {
-        "title": "Cena 3: Pet Shop da Marisa",
-        "text": "Acreditou na Dolores",
-        "choices": [],
-        "roll-dices": false
-    },
-    // ############### acreditar-na-marisa
-    "acreditar-na-marisa": {
-        "title": "Cena 3: Pet Shop da Marisa",
-        "text": "Acreditou na Marisa",
-        "choices": [],
-        "roll-dices": false
-    },
+    
     // ############### teste para descobrir a rura
     "teste-para-descobrir-rua-certa": {
         "title": "Cena 3: Pet Shop da Marisa",
@@ -714,15 +701,111 @@ const dados_cenas_03_04_05 = {
             }
         ],
         "roll-dices": false
-    }
+    },
+
+    // ############### acreditar-na-dolores
+    "acreditar-na-dolores": {
+        "title": "Cena 3: Pet Shop da Marisa",
+        "text": `Thalita segue pela Rua do Armazém Antigo.
+                É uma rua vazia, silenciosa, com prédios antigos fechados com tábuas. O vento arrasta papéis e poeira pelo chão.
+                Ela caminha alguns minutos.
+                Nada.
+                Nenhuma ração.
+                Nenhum brinquedo.
+                Nenhum sinal de crianças.
+                Nenhum vestígio do Bisteca.
+                A frustração cresce.
+                Thalita para, respira fundo.
+                — Droga… perdi tempo.
+                Ela olha ao redor mais uma vez — e é óbvio que está no lugar errado.
+                A sensação de estar “caçando sombra” aumenta sua confusão.
+
+                > Teste intelecto`,
+        "choices": [],
+        "roll-dices": true,
+        "roll-results": {
+            "success": {
+                "text": "Você descobre a rua certa",
+                "target": "sucesso-rua-errada",
+                "atributos-adicao-jogador": [],
+                "atributos-descontado-jogador": [],
+            },
+            "fail": {
+                "text": "Você não consegue saber qual é",
+                "target": "falha-rua-errada",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": []
+            }
+        },
+        "atributos-adicao-dados": ["intelecto"],
+        "atributos-descontado-dados": [],
+        "atributos-add": {
+            "confusao": 1
+        }
+    },
+
+    // ############### acreditar-na-marisa
+    "acreditar-na-marisa": {
+        "title": "Cena 3: Pet Shop da Marisa",
+        "text": `Thalita decide seguir pela rua que Marisa mencionou.
+                A calçada é estreita, com algumas casas antigas e árvores que fazem sombra no final da tarde.
+                O movimento é baixo, só alguns carros passando e um cachorro latindo ao longe.
+                Ela caminha devagar, observando cada detalhe, procurando qualquer sinal que possa levar ao Bisteca.`,
+        "choices": [
+            {
+                "text": "Ir para a rua certa",
+                "target": "investigacao-bairro"
+            }
+        ],
+        "roll-dices": false
+    },
 
     // ###########################################################################
     // Cena Alternativa: Caminho Errado
     // ###########################################################################
+    // sucesso-rua-errada
+    "sucesso-rua-errada": {
+        "title": "Cena 3: Pet Shop da Marisa",
+        "text": `Você se lembra da fala da Marisa:
+                    “As crianças sempre seguem para a pracinha… Rua das Laranjeiras.”
+                Faz muito mais sentido.
+                Thalita reorganiza suas ideias, fecha o caderno com força, e segue para o caminho correto.`,
+        "choices": [
+            {
+                "text": "Ir para a rua certa",
+                "target": "investigacao-bairro"
+            }
+        ],
+        "roll-dices": false
+    },
+
+    // falha-rua-errada
+    "falha-rua-errada": {
+        "title": "Cena 3: Pet Shop da Marisa",
+        "text": "Você perde alguns minutos a mais, insistindo à toa.",
+        "choices": [
+            {
+                "text": "Ir para a rua certa",
+                "target": "investigacao-bairro"
+            }
+        ],
+        "roll-dices": false
+    },
 
     // ###########################################################################
     // Cena 4: Investigação no bairro / pistas do garoto
     // ###########################################################################
+    "investigacao-bairro": {
+        "title": "Cena 4: Investigação no bairro",
+        "text": "Continua...",
+        "choices": [],
+        "roll-dices": false
+    }
 
     // ###########################################################################
     // Final Ruim - Você não achou o Bisteca
