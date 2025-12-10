@@ -3,8 +3,9 @@ const tituloAtributo = document.querySelector('#tituloAtributo');
 const descricaoAtributo = document.querySelector('#descricaoAtributo');
 const modal = document.querySelector('#modal-descricao');
 
-// Resetar atributos salvos
-localStorage.setItem("jogador", "");
+// limpar dados de jogador, caso tenha
+localStorage.clear();
+
 let nomeAtributoSelecionado = '';
 
 let jogador = {

@@ -1,0 +1,28 @@
+* {
+    font-family: "Comic Neue", cursive;
+}
+
+.attr-box {
+    background: #444;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.attr-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.attr-name {
+    width: 130px;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+}
+
+.attr-value {
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+}

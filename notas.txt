@@ -1,4 +1,4 @@
 mudancas
 
-dialogos:
+PADRONIZAR OS DIÁLOGOS:
 - Nome: fala
