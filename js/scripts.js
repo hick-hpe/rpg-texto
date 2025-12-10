@@ -16,7 +16,7 @@ let MIN_partial_3_CHOICES = 6;
 let MIN_SUCCESS_2_CHOICES = 7;
 // let cenaID = "introducao";
 // let cenaID = "continuar-examinar-area-loja";
-let cenaID = "acreditar-na-marisa";
+let cenaID = "investigacao-bairro";
 let localStorageData = localStorage.getItem("jogador");
 if (!localStorageData) {
     window.location.href = 'atributos.html';
@@ -27,6 +27,15 @@ let atributosAdicao;
 let atributosDescontado;
 let cenasVistas = new Set(cenaID);
 let statusDecisaoJogador = '';
+
+// buscar cena pelo ID
+function buscarCenaPeloID(cenaID) {
+    return (
+        dados_cenas_01_02[cenaID] || 
+        dados_cenas_03[cenaID] ||
+        dados_cenas_04_05[cenaID]
+    );
+}
 
 // atualizar atributos do jogador na interface
 function atualizarAtributosJogadorNaInterface() {
@@ -351,7 +360,7 @@ btnRolarDados.addEventListener("click", () => {
 // ação após rolar os dados
 function acaoAposRolarOsDados() {
     // obtém a cena atual
-    const cena = dados_cenas_01_02[cenaID] || dados_cenas_03_04_05[cenaID];
+    const cena = buscarCenaPeloID(cenaID);
 
     // obtem proximas cenas
     const resultados = cena["roll-results"];
@@ -496,7 +505,7 @@ function atualizarInterface(cenaID) {
     atualizarBotaoDados();
 
     // obtém a cena atual
-    objCena = dados_cenas_01_02[cenaID] || dados_cenas_03_04_05[cenaID];
+    objCena = buscarCenaPeloID(cenaID);
 
     console.log('cenaID: ', cenaID);
 
