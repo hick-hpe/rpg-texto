@@ -41,7 +41,7 @@ const dados_cenas_01_02 = {
         <b>[Você]</b> \"Calma, senhora… quem é Bisteca?\"
         <b>[Dolores]</b> \"O MEU GATO! O amor da minha vida! Ele nunca some! Nunca! Eu tô desesperada!\"
         <b>[Você]</b> \"Entendo. A senhora viu alguma coisa estranha? Alguma pista?\"
-        <b>[Dolores]</b> \"Nada! Só acordei, fiz meu chimarrão e… sniff sniff …quando fui dar a ração… a vasilha tava lá, mas o Bisteca…\"meu Deus… o Bisteca não tavaaa…”
+        <b>[Dolores]</b> \"Nada! Só acordei, fiz meu chimarrão e… sniff sniff …quando fui dar a ração… a vasilha tava lá, mas o Bisteca…\"meu Deus… o Bisteca não tavaaa…"
         <b>[Você]</b> \"Certo, dona Dolores. Respire fundo. Eu posso ajudar. Me passe seu endereço.\"
         <b>[Dolores]</b> \"Rua das Laranjeiras, número 217! Por favor, investigadora, venha logo! Ele deve estar sofrendo!\"
         <b>[Você]</b> \"Estou a caminho.\"
@@ -73,7 +73,7 @@ const dados_cenas_01_02 = {
         <b>[Você]</b> \"Certo, senhora… vamos com calma. Quem é Bisteca?\"
         <b>[Dolores]</b> \"O MEU GATO!! O GATO MAIS PERFEITO QUE EXISTE!!\"
         <b>[Você]</b> \"Entendo. A senhora viu alguma coisa estranha? Alguma pista?\"
-        <b>[Dolores]</b> \"Nada! Só acordei, fiz meu chimarrão e… sniff sniff …quando fui dar a ração… a vasilha tava lá, mas o Bisteca…\"meu Deus… o Bisteca não tavaaa…”
+        <b>[Dolores]</b> \"Nada! Só acordei, fiz meu chimarrão e… sniff sniff …quando fui dar a ração… a vasilha tava lá, mas o Bisteca…\"meu Deus… o Bisteca não tavaaa…"
         <b>[Você]</b> \"Certo, dona Dolores. Respire fundo. Eu posso ajudar. Me passe seu endereço.\"
         <b>[Dolores]</b> \"Rua das Laranjeiras, número 217! Por favor, investigadora, venha logo! Ele deve estar sofrendo!\"
         <b>[Você]</b> \"Estou a caminho.\"
@@ -153,20 +153,41 @@ const dados_cenas_01_02 = {
         "text": "Análise do portão - Teste de Investigação",
         "choices": [],
         "roll-dices": true,
-        "atributos-adicao": ["investigacao"],
-        "atributos-punicao": [],
+        "atributos-adicao-dados": ["investigacao"],
+        "atributos-descontado-dados": [],
         "roll-results": {
             "success": {
                 "text": "Você identifica algo incomum",
-                "target": "sucesso-portao"
+                "target": "sucesso-portao",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "investigacao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": [],
             },
-            "mixed": {
+            "partial": {
                 "text": "Uma pista parcial",
-                "target": "parcial-portao"
+                "target": "parcial-portao",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "investigacao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": [],
             },
             "fail": {
                 "text": "Você interpreta errado",
-                "target": "falha-portao"
+                "target": "falha-portao",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": [],
             }
         }
     },
@@ -177,7 +198,7 @@ const dados_cenas_01_02 = {
                 Mas o detalhe mais curioso está no chão: um ratinho de brinquedo, daqueles vendidos na pet shop da Dona Marisa, ali perto.`,
         "choices": [
             {
-                "text": "Prosseguir para a loja da Dona Marisa",
+                "text": "Ir à loja da Dona Marisa",
                 "target": "loja-marisa"
             },
             {
@@ -207,7 +228,7 @@ const dados_cenas_01_02 = {
                 um ratinho de brinquedo, daqueles vendidos na pet shop da Dona Marisa, ali perto.`,
         "choices": [
             {
-                "text": "Prosseguir para a loja da Dona Marisa",
+                "text": "Ir à loja da Dona Marisa",
                 "target": "loja-marisa"
             },
             {
@@ -236,7 +257,7 @@ const dados_cenas_01_02 = {
                 Mas o detalhe mais curioso está no chão: um ratinho de brinquedo, daqueles vendidos na pet shop da Dona Marisa, ali perto.`,
         "choices": [
             {
-                "text": "Prosseguir para a loja da Dona Marisa",
+                "text": "Ir à loja da Dona Marisa",
                 "target": "loja-marisa"
             }
         ],
@@ -248,20 +269,36 @@ const dados_cenas_01_02 = {
         "text": "Análise da tigela - Teste de Investigação + Percepção",
         "choices": [],
         "roll-dices": true,
-        "atributos-adicao": ["investigacao", "percepcao"],
-        "atributos-punicao": ["confusao"],
+        "atributos-adicao-dados": ["investigacao", "percepcao"],
+        "atributos-descontado-dados": ["confusao"],
         "roll-results": {
             "success": {
                 "text": "Você identifica algo incomum",
-                "target": "sucesso-tigela"
+                "target": "sucesso-tigela",
+                "atributos-adicao-jogador": [],
+                "atributos-descontado-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ],
             },
-            "mixed": {
+            "partial": {
                 "text": "Uma pista parcial",
-                "target": "parcial-tigela"
+                "target": "parcial-tigela",
+                "atributos-adicao-jogador": [],
+                "atributos-descontado-jogador": []
             },
             "fail": {
                 "text": "Você interpreta errado",
-                "target": "falha-tigela"
+                "target": "falha-tigela",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": []
             }
         }
     },
@@ -286,14 +323,14 @@ const dados_cenas_01_02 = {
                 
                 A sequência indica algo rápido, leve e… pequeno o suficiente para escalar.
                 Dolores toca seu braço, preocupada:
-                [Dolores] “Eu ouvi uns passos correndo aqui ontem… mas achei que fosse algum cachorro do vizinho.”
+                [Dolores] "Eu ouvi uns passos correndo aqui ontem… mas achei que fosse algum cachorro do vizinho."
                 
                 Você sabe que não eram de cachorro.
                 Aquilo parece… pegada de fantasia infantil, daquelas com pés enormes de dinossauro.
                 Mas quem estaria fantasiado, correndo pelo quintal da Dolores?`,
         "choices": [
             {
-                "text": "Prosseguir para a loja da Dona Marisa",
+                "text": "Ir à loja da Dona Marisa",
                 "target": "loja-marisa"
             },
             {
@@ -330,11 +367,11 @@ const dados_cenas_01_02 = {
                 Mas sua confusão te atrapalha:
                 as pegadas parecem mudar de forma conforme você olha.
                 Dolores, percebendo seu foco, diz:
-                [Dolores] “Eu ouvi uns passinhos correndo aqui… mas não sei se era cachorro, criança… sei lá.”
+                [Dolores] "Eu ouvi uns passinhos correndo aqui… mas não sei se era cachorro, criança… sei lá."
                 Você percebe que existe alguém ou algo envolvido — mas não consegue montar o quadro completo ainda.`,
         "choices": [
             {
-                "text": "Prosseguir para a loja da Dona Marisa",
+                "text": "Ir à loja da Dona Marisa",
                 "target": "loja-marisa"
             },
             {
@@ -361,19 +398,19 @@ const dados_cenas_01_02 = {
         "title": "Cena 02 - Casa de Dolores",
         "text": `A confusão atrapalha completamente sua leitura.
                 Você olha a tigela derrubada e conclui:
-                “Ah… provavelmente o próprio Bisteca esbarrou e virou o pote.”
+                "Ah… provavelmente o próprio Bisteca esbarrou e virou o pote."
                 As pegadas na terra?
                 Você nem percebe como um padrão — parecem só marcações aleatórias de pássaro ou de vento.
                 Nada demais.
                 Dolores, tentando ajudar, pega algo no bolso:
-                [Dolores] “Mas… olha essa pegada grande que ficou aqui no canto! Não parece de cachorro… nem de gato…”
+                [Dolores] "Mas… olha essa pegada grande que ficou aqui no canto! Não parece de cachorro… nem de gato…"
                 Você olha rapidamente e dá de ombros.
                 Mas Dolores está desesperada:
-                [Dolores] “A Dona Marisa vende uns brinquedos desses de dinossauro pra criança… talvez alguém tenha passado aqui! Vai lá falar com ela, por favor!”
+                [Dolores] "A Dona Marisa vende uns brinquedos desses de dinossauro pra criança… talvez alguém tenha passado aqui! Vai lá falar com ela, por favor!"
                 Mesmo sem entender nada, você acaba sendo praticamente empurrada para a pet shop.`,
         "choices": [
             {
-                "text": "Prosseguir para a loja da Dona Marisa",
+                "text": "Ir à loja da Dona Marisa",
                 "target": "loja-marisa"
             }
         ],
@@ -385,20 +422,56 @@ const dados_cenas_01_02 = {
         "text": "Observar o quintal - Teste de Investigação + Percepção",
         "choices": [],
         "roll-dices": true,
-        "atributos-adicao": ["investigacao", "percepcao"],
-        "atributos-punicao": ["confusao"],
+        "atributos-adicao-dados": ["investigacao", "percepcao"],
+        "atributos-descontado-dados": ["confusao"],
         "roll-results": {
             "success": {
                 "text": "Você identifica algo incomum",
-                "target": "sucesso-observar-quintal"
+                "target": "sucesso-observar-quintal",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "investigacao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ]
             },
-            "mixed": {
+            "partial": {
                 "text": "Uma pista parcial",
-                "target": "parcial-observar-quintal"
+                "target": "parcial-observar-quintal",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "investigacao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ]
             },
             "fail": {
                 "text": "Você interpreta errado",
-                "target": "falha-observar-quintal"
+                "target": "falha-observar-quintal",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "investigacao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ]
             }
         }
     },
@@ -414,12 +487,12 @@ const dados_cenas_01_02 = {
                 A marca leve de um joelho pequeno, pressionando a terra.
                 A direção da passada curta, interrompida, como se a criança tivesse parado bruscamente.
                 Dolores confirma:
-                “Eu não tenho crianças aqui… e nunca vi esse adesivo.”
+                "Eu não tenho crianças aqui… e nunca vi esse adesivo."
                 Seu instinto se afirma:
                 Uma criança esteve ali — recentemente — e estava com pressa.`,
         "choices": [
             {
-                "text": "Prosseguir para a loja da Dona Marisa",
+                "text": "Ir à loja da Dona Marisa",
                 "target": "loja-marisa"
             },
             {
@@ -453,7 +526,7 @@ const dados_cenas_01_02 = {
                 Mas você sente que algo está faltando, como se tivesse perdido um detalhe importante que estava logo ali.`,
         "choices": [
             {
-                "text": "Prosseguir para a loja da Dona Marisa",
+                "text": "Ir à loja da Dona Marisa",
                 "target": "loja-marisa"
             },
             {
@@ -518,37 +591,73 @@ const dados_cenas_01_02 = {
         "text": "Perguntar mais - Teste de Investigação + Percepção",
         "choices": [],
         "roll-dices": true,
-        "atributos-adicao": ["investigacao", "intelecto"],
-        "atributos-punicao": ["confusao"],
+        "atributos-adicao-dados": ["investigacao", "intelecto"],
+        "atributos-descontado-dados": ["confusao"],
         "roll-results": {
             "success": {
                 "text": "Você identifica algo incomum",
-                "target": "sucesso-observar-quintal"
+                "target": "sucesso-observar-quintal",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "investigacao",
+                        "value": 1
+                    },
+                    {
+                        "attr": "intelecto",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ]
             },
-            "mixed": {
+            "partial": {
                 "text": "Uma pista parcial",
-                "target": "parcial-observar-quintal"
+                "target": "parcial-observar-quintal",
+                "atributos-adicao-jogador": [],
+                "atributos-descontado-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ]
             },
             "fail": {
                 "text": "Você interpreta errado",
-                "target": "falha-observar-quintal"
+                "target": "falha-observar-quintal",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "intelecto",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ]
             }
         }
     },
     // sucesso perguntar-mais
     "sucesso-perguntar-mais": {
+        "title": "Cena 02 - Casa de Dolores",
         "text": `Você se aproxima de Dolores com postura firme, fazendo perguntas diretas, mas acolhedoras.
                 Ela percebe que você está realmente tentando ajudá-la — e isso faz com que relaxe um pouco.
                 Ao responder, você nota até detalhes que ela não queria admitir de início.
                 Dolores respira fundo e conta:
-                “Vi o Bisteca ontem à noite. Ele dormiu perto da janela, como sempre.”
+                "Vi o Bisteca ontem à noite. Ele dormiu perto da janela, como sempre."
 
-                “Ele quase nunca sai do quintal.”
+                "Ele quase nunca sai do quintal."
 
-                “Teve… um homem estranho. Passou duas vezes perguntando se eu tinha algo de valor no quintal.”
+                "Teve… um homem estranho. Passou duas vezes perguntando se eu tinha algo de valor no quintal."
                 Seu tom mostra que ela ficou mais incomodada do que havia dito antes.
 
-                “Ontem à tarde ouvi um estalo na cerca. Achei que fosse o vento… mas agora não tenho tanta certeza.”
+                "Ontem à tarde ouvi um estalo na cerca. Achei que fosse o vento… mas agora não tenho tanta certeza."
 
                 Você percebe claramente que Dolores está com medo — não do gato desaparecer, mas de estar sendo observada há dias.
                 Com sua habilidade, você faz as perguntas certas e extrai exatamente o que ela sabe.`,
@@ -561,6 +670,7 @@ const dados_cenas_01_02 = {
     },
     // parcial perguntar-mais
     "parcial-perguntar-mais": {
+        "title": "Cena 02 - Casa de Dolores",
         "text": `Você conversa com Dolores, e ela responde prontamente, mas parece esquecer alguns detalhes até que você a relembra.
                 Ela diz:
                 Viu o gato ontem à noite dormindo na janela.
@@ -581,6 +691,7 @@ const dados_cenas_01_02 = {
     },
     // falha perguntar-mais
     "falha-perguntar-mais": {
+        "title": "Cena 02 - Casa de Dolores",
         "text": `Você tenta interrogar Dolores, mas sua mente embaralhada não ajuda.
                 As perguntas saem na ordem errada ou parecem mais acusatórias do que você pretendia.
                 Dolores fica desconfortável.
@@ -589,7 +700,7 @@ const dados_cenas_01_02 = {
 
                 Afirma que o gato não sai do quintal, mas parece hesitar.
 
-                Fala sobre um homem estranho, mas não lembra se foi “duas vezes” ou “uma vez só”.
+                Fala sobre um homem estranho, mas não lembra se foi "duas vezes" ou "uma vez só".
 
                 O estalo na cerca vira algo confuso — talvez tenha sido o vento, talvez não.
 
@@ -620,7 +731,7 @@ const dados_cenas_01_02 = {
             },
             {
                 "text": "Conversar com um vizinho que está olhando curioso",
-                "target": "Conversar-vizinho"
+                "target": "conversar-vizinho"
             },
             {
                 "text": "Procurar pegadas ou marcas no muro",
@@ -635,25 +746,56 @@ const dados_cenas_01_02 = {
         "text": "Examinar a fechadura do portão - Teste de Investigação + Percepção",
         "choices": [],
         "roll-dices": true,
-        "atributos-adicao": ["percepcao"],
-        "atributos-punicao": ["confusao"],
+        "atributos-adicao-dados": ["percepcao"],
+        "atributos-descontado-dados": ["confusao"],
         "roll-results": {
             "success": {
                 "text": "Você identifica algo incomum",
-                "target": "sucesso-examinar-fechadura"
+                "target": "sucesso-examinar-fechadura",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "percepcao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ]
             },
-            "mixed": {
+            "partial": {
                 "text": "Uma pista parcial",
-                "target": "parcial-examinar-fechadura"
+                "target": "parcial-examinar-fechadura",
+                "atributos-adicao-jogador": [],
+                "atributos-descontado-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ]
             },
             "fail": {
                 "text": "Você interpreta errado",
-                "target": "falha-examinar-fechadura"
+                "target": "falha-examinar-fechadura",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "intelecto",
+                        "value": 1
+                    },
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": []
             }
         }
     },
     // sucesso examinar-fechadura
     "sucesso-examinar-fechadura": {
+        "title": "Cena 02 - Casa de Dolores",
         "text": `Você se aproxima da fechadura com cuidado, examinando cada detalhe: a borda do metal, a pintura e o encaixe do mecanismo.
                 Nada ali indica arrombamento: nenhuma marca de chave forçada, nenhum arranhão profundo, nenhuma folga incomum.
                 Mas então você nota algo que alguém distraído jamais veria:
@@ -674,7 +816,7 @@ const dados_cenas_01_02 = {
             },
             {
                 "text": "Conversar com um vizinho que está olhando curioso",
-                "target": "Conversar-vizinho"
+                "target": "conversar-vizinho"
             },
             {
                 "text": "Procurar pegadas ou marcas no muro",
@@ -685,6 +827,7 @@ const dados_cenas_01_02 = {
     },
     // parcial examinar-fechadura
     "parcial-examinar-fechadura": {
+        "title": "Cena 02 - Casa de Dolores",
         "text": `Você examina a fechadura, mas ela parece completamente normal à primeira vista.
                 Quase desiste, até perceber um pequeno arranhão — fino, quase imperceptível.
                 Não parece de ferramenta ou de tentativa de invasão.
@@ -705,7 +848,7 @@ const dados_cenas_01_02 = {
             },
             {
                 "text": "Conversar com um vizinho que está olhando curioso",
-                "target": "Conversar-vizinho"
+                "target": "conversar-vizinho"
             },
             {
                 "text": "Procurar pegadas ou marcas no muro",
@@ -716,11 +859,12 @@ const dados_cenas_01_02 = {
     },
     // falha examinar-fechadura
     "falha-examinar-fechadura": {
+        "title": "Cena 02 - Casa de Dolores",
         "text": `Você acha que alguém tentou arrombar a casa (erro que aumenta a tensão), e Dolores confirma nervosa:
                     "É por isso que precisam ir falar com a Marisa! Ela conhece todo mundo do bairro!"`,
         "choices": [
             {
-                "text": "Prosseguir para a loja da Dona Marisa",
+                "text": "Ir à loja da Dona Marisa",
                 "target": "loja-marisa"
             }
         ]
@@ -728,6 +872,7 @@ const dados_cenas_01_02 = {
 
     // ###################### verificar-cameras
     "verificar-cameras": {
+        "title": "Cena 02 - Casa de Dolores",
         "text": "Não há câmeras na casa, mas a casa ao lado tem uma… que está desligada há semanas.",
         "choices": [
             {
@@ -740,7 +885,7 @@ const dados_cenas_01_02 = {
             },
             {
                 "text": "Conversar com um vizinho que está olhando curioso",
-                "target": "Conversar-vizinho"
+                "target": "conversar-vizinho"
             },
             {
                 "text": "Procurar pegadas ou marcas no muro",
@@ -756,20 +901,41 @@ const dados_cenas_01_02 = {
         "text": "Analisar o chão perto do portão - Teste de Investigação",
         "choices": [],
         "roll-dices": true,
-        "atributos-adicao": ["investigacao"],
-        "atributos-punicao": [],
+        "atributos-adicao-dados": ["investigacao"],
+        "atributos-descontado-dados": [],
         "roll-results": {
             "success": {
                 "text": "Você identifica algo incomum",
-                "target": "sucesso-analisar-chao"
+                "target": "sucesso-analisar-chao",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "investigacao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": []
             },
-            "mixed": {
+            "partial": {
                 "text": "Uma pista parcial",
-                "target": "parcial-analisar-chao"
+                "target": "parcial-analisar-chao",
+                "atributos-adicao-jogador": [],
+                "atributos-descontado-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ]
             },
             "fail": {
                 "text": "Você interpreta errado",
-                "target": "falha-analisar-chao"
+                "target": "falha-analisar-chao",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "confusao",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": []
             }
         }
     },
@@ -781,7 +947,7 @@ const dados_cenas_01_02 = {
                 
                 Primeiro, vê as marcas leves no chão.
                 Não são pegadas, mas sim uma linha contínua, como se algo pequeno tivesse sido arrastado.
-                Depois, nota os pequenos grãos de ração espalhados, formando quase um “caminho”.
+                Depois, nota os pequenos grãos de ração espalhados, formando quase um "caminho".
                 E então, o detalhe crucial:
                 
                 Um fiozinho de tecido azul, preso numa farpa do portão, tremulando levemente ao vento.
@@ -804,7 +970,7 @@ const dados_cenas_01_02 = {
             },
             {
                 "text": "Conversar com um vizinho que está olhando curioso",
-                "target": "Conversar-vizinho"
+                "target": "conversar-vizinho"
             },
             {
                 "text": "Procurar pegadas ou marcas no muro",
@@ -822,12 +988,12 @@ const dados_cenas_01_02 = {
                 um fio de tecido azul
                 Mas não consegue montar o quebra-cabeça inteiro.
                 Percebe o fio preso no portão e pensa:
-                “Isso é de roupa? Mochila? Gato? Difícil dizer…”
+                "Isso é de roupa? Mochila? Gato? Difícil dizer…"
                 A única coisa realmente clara é:
                 ➡️ As marcas vão em direção à calçada… mas você não tem certeza para onde depois disso.
                 Dolores observa você analisando e pergunta tímida:
                 [Dolores]
-                “Isso significa que alguém passou? Ou… que o Bisteca tentou sair?”
+                "Isso significa que alguém passou? Ou… que o Bisteca tentou sair?"
                 Você ainda não quer afirmar nada.`,
         "choices": [
             {
@@ -840,7 +1006,7 @@ const dados_cenas_01_02 = {
             },
             {
                 "text": "Conversar com um vizinho que está olhando curioso",
-                "target": "Conversar-vizinho"
+                "target": "conversar-vizinho"
             },
             {
                 "text": "Procurar pegadas ou marcas no muro",
@@ -854,16 +1020,16 @@ const dados_cenas_01_02 = {
         "title": "Cena 02 - Casa de Dolores",
         "text": `A confusão pesa no seu raciocínio.
                 Você vê as marcas no chão, mas interpreta mal:
-                “Será que o gato arrastou o pote de ração?”
+                "Será que o gato arrastou o pote de ração?"
                 Os grãozinhos até fazem sentido — gatos são bagunceiros.
                 O fio azul, no entanto, te engana completamente:
                 você conclui que pode ser do próprio portão se desgastando.
                 Mas Dolores, observando atentamente, franze a testa:
                 [Dolores]
-                “Mas… isso não parece com tinta descascando, né? Parece tecido mesmo! Eu achei esse fiapinho hoje de manhã…”
+                "Mas… isso não parece com tinta descascando, né? Parece tecido mesmo! Eu achei esse fiapinho hoje de manhã…"
                 Ela entrega outro detalhe contraditório:
                 [Dolores]
-                “E o pote estava na sombra. O Bisteca nunca arrasta o pote pra longe da sombra.”
+                "E o pote estava na sombra. O Bisteca nunca arrasta o pote pra longe da sombra."
                 Você percebe que errou — mas isso também te obriga a reconsiderar, o que aumenta sua investigação no futuro.`,
         "choices": [
             {
@@ -926,20 +1092,31 @@ const dados_cenas_01_02 = {
         "text": "Procurar pegadas ou marcas no muro - Teste de Investigação + Percepção",
         "choices": [],
         "roll-dices": true,
-        "atributos-adicao": ["investigacao", "intelecto "],
-        "atributos-punicao": ["confusao"],
+        "atributos-adicao-dados": ["investigacao", "intelecto "],
+        "atributos-descontado-dados": ["confusao"],
         "roll-results": {
             "success": {
                 "text": "Você identifica algo incomum",
-                "target": "sucesso-procurar-pegadas"
+                "target": "sucesso-procurar-pegadas",
+                "atributos-adicao-jogador": [
+                    {
+                        "attr": "intelecto",
+                        "value": 1
+                    }
+                ],
+                "atributos-descontado-jogador": []
             },
-            "mixed": {
+            "partial": {
                 "text": "Uma pista parcial",
-                "target": "parcial-procurar-pegadas"
+                "target": "parcial-procurar-pegadas",
+                "atributos-adicao-jogador": [],
+                "atributos-descontado-jogador": []
             },
             "fail": {
                 "text": "Você interpreta errado",
-                "target": "falha-procurar-pegadas"
+                "target": "falha-procurar-pegadas",
+                "atributos-adicao-jogador": [],
+                "atributos-descontado-jogador": []
             }
         }
     },
@@ -958,7 +1135,7 @@ const dados_cenas_01_02 = {
         "choices": [
             {
                 "text": "Ir à loja",
-                "target": "Loja-marisa"
+                "target": "loja-marisa"
             }
         ],
         "roll-dices": false,
@@ -973,12 +1150,12 @@ const dados_cenas_01_02 = {
                 ➡️ Um pedacinho de plástico colorido, provavelmente vindo de um brinquedo infantil.
                 Dolores também se inclina para olhar e murmura:
                 [Dolores]
-                “Eu já vi desses… a loja da esquina vende um monte de brinquedinho barato assim.”
+                "Eu já vi desses… a loja da esquina vende um monte de brinquedinho barato assim."
                 Não é prova definitiva, mas é mais um indício apontando para o mesmo lugar.`,
         "choices": [
             {
                 "text": "Ir à loja",
-                "target": "Loja-marisa"
+                "target": "loja-marisa"
             }
         ],
         "roll-dices": false,
@@ -988,19 +1165,19 @@ const dados_cenas_01_02 = {
         "title": "Cena 02 - Casa de Dolores",
         "text": `Você examina os arranhões… mas sinceramente, parecem desgaste normal.
                 O muro é velho, afinal.
-                “Deve ser coisa antiga, nada relevante.”
+                "Deve ser coisa antiga, nada relevante."
                 É o que você pensa.
                 Mas Dolores, nervosa e insistente, quase te interrompe:
                 [Dolores]
-                “Mas olha isso aqui! Eu achei no quintal hoje mais cedo!”
+                "Mas olha isso aqui! Eu achei no quintal hoje mais cedo!"
                 Ela mostra um pequeno brinquedinho de plástico, sujo de terra.
                 [Dolores]
-                “Isso é vendido lá na pet shop! Tem certeza que não tem nada acontecendo? Por favor, vá falar com a Marisa!”
+                "Isso é vendido lá na pet shop! Tem certeza que não tem nada acontecendo? Por favor, vá falar com a Marisa!"
                 Mesmo não encontrando nada útil, você é empurrada emocionalmente rumo à mesma direção.`,
         "choices": [
             {
                 "text": "Ir à loja",
-                "target": "Loja-marisa"
+                "target": "loja-marisa"
             }
         ],
         "roll-dices": false,

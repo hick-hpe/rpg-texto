@@ -7,38 +7,152 @@ const btnRolarDados = document.querySelector('#rolar');
 const divResultDados = document.querySelector('#dados');
 const divAtributosInfluenciadores = document.querySelector('#atributos-influenciadores');
 const divAtributosJogador = document.querySelector('#atributos-jogador');
+const divAlteracoesAtributosJogador = document.querySelector('#alteracoes-atributos-jogador');
 
 // variaveis globais
 let somaTotal = 0;
-let MIN_SUCCESS = 9;
-let MIN_MIXED = 6;
-// let cenaAtual = "introducao";
-let cenaAtual = "loja-marisa";
+let MIN_SUCCESS_3_CHOICES = 9;
+let MIN_partial_3_CHOICES = 6;
+let MIN_SUCCESS_2_CHOICES = 7;
+let cenaID = "introducao";
+// let cenaID = "continuar-examinar-area-loja";
+// let cenaID = "abrandar-confusao";
 let localStorageData = localStorage.getItem("jogador");
 if (!localStorageData) {
     window.location.href = 'atributos.html';
 }
 let jogador = JSON.parse(localStorageData)
-let objCenaAtual;
+let objCena;
 let atributosAdicao;
-let atributosPunicao;
+let atributosDescontado;
+let cenasVistas = new Set(cenaID);
+let statusDecisaoJogador = '';
 
-function atualizarAtributosJogador() {
+// atualizar atributos do jogador na interface
+function atualizarAtributosJogadorNaInterface() {
     divAtributosJogador.innerHTML = ''; // limpa antes
+
+    const atributosFormatados = {
+        "investigacao": "Investigação",
+        "intelecto": "Intelecto",
+        "percepcao": "Percepção",
+        "confusao": "Confusão",
+        "social": "Social",
+    }
 
     for (let attr in jogador) {
         const valor = jogador[attr];
         const span = document.createElement('span');
         span.className = 'd-block fs-5 mb-1'; // cada atributo em linha separada
-        span.innerText = `${attr}: ${valor}`;
+        span.innerText = `${atributosFormatados[attr]}: ${valor}`;
         divAtributosJogador.appendChild(span);
     }
 }
 
 // atualizar atributos para os dados
 function atualizarAtributosAdicionaisEPunicao() {
-    atributosAdicao = objCenaAtual["atributos-adicao"] || [];
-    atributosPunicao = objCenaAtual["atributos-punicao"] || [];
+    atributosAdicao = objCena["atributos-adicao-dados"] || [];
+    atributosDescontado = objCena["atributos-descontado-dados"] || [];
+}
+
+// adicionar/diminuir atributos do jogador
+function alterarAtributosJogador() {
+    // aumentar??
+    // atributo-add
+
+    // diminuir
+    if (Object.hasOwn(objCena, "atributo-less")) {
+        const atributosLess = objCena["atributo-less"];
+        Object.keys(atributosLess).forEach(attr => {
+            if (jogador[attr]) {
+                jogador[attr] -= atributosLess[attr];
+                console.log('ATTR-LESS: ', attr);
+            }
+        });
+    }
+}
+
+// adicionar/diminuir atributos do jogador após rolar os dados
+function alterarAtributosJogadorAposDados() {
+    const objRollResults = objCena["roll-results"][statusDecisaoJogador]
+    const atributosAdd = objRollResults["atributos-adicao-jogador"] || [];
+    const atributosLess = objRollResults["atributos-descontado-jogador"] || [];
+    let divContentAlteracoesSuccess = '';
+    let divContentAlteracoesDanger = '';
+
+    console.log("=== Alterando atributos do jogador ===");
+    console.log("Cena atual:", cenaID || "(sem id)");
+
+    console.log("Atributos atuais do jogador:", JSON.stringify(jogador, null, 2));
+    console.log("=====================================");
+
+    // adicionar
+    if (atributosAdd.length > 0) {
+        atributosAdd.forEach(obj => {
+            const { attr, value } = obj;
+
+            if (jogador[attr] == null) {
+                console.warn(`Atributo "${attr}" não existe no jogador! (add)`);
+                return;
+            }
+
+            const antes = jogador[attr];
+            jogador[attr] += value;
+
+            console.log(
+                `[ADD] ${attr}: ${antes} + ${value} → ${jogador[attr]}`
+            );
+
+            divContentAlteracoesSuccess += `<strong>${attr} +${value}</strong>`;
+        });
+
+        divContentAlteracoesSuccess = `
+            <div class="alert alert-success mt-3 text-center" role="alert">
+                <div class="d-flex flex-column justify-content-center align-items-center gap-2 fs-5">
+                    ${divContentAlteracoesSuccess}
+                </div>
+            </div>
+        `;
+    }
+
+    // diminuir
+    if (atributosLess.length > 0) {
+        atributosLess.forEach(obj => {
+            const { attr, value } = obj;
+
+            if (jogador[attr] == null) {
+                console.warn(`Atributo "${attr}" não existe no jogador! (less)`);
+                return;
+            }
+
+            const antes = jogador[attr];
+            jogador[attr] -= value;
+
+            console.log(
+                `[LESS] ${attr}: ${antes} - ${value} → ${jogador[attr]}`
+            );
+
+            divContentAlteracoesDanger += `<strong>${attr} -${value}</strong>`;
+        });
+
+        divContentAlteracoesDanger = `
+            <div class="alert alert-danger mt-3 text-center" role="alert">
+                <div class="d-flex flex-column justify-content-center align-items-center gap-2 fs-5">
+                    ${divContentAlteracoesDanger}
+                </div>
+            </div>
+        `;
+    }
+
+    divAlteracoesAtributosJogador.innerHTML = divContentAlteracoesSuccess + divContentAlteracoesDanger;
+
+    console.log("Atributos finais do jogador:", JSON.stringify(jogador, null, 2));
+    console.log("=====================================");
+
+    statusDecisaoJogador = '';
+
+    // atualizar interface
+    atualizarAtributosJogadorNaInterface();
 }
 
 // validar formato da cena
@@ -78,18 +192,45 @@ function cenaEhValida(cena, cenaID) {
         if (!cena["roll-results"]) {
             erros.push(`Cena "${cenaID}" usa dados mas não tem "roll-results".`);
         } else {
+            // validar classificacao das escolhas
             const rr = cena["roll-results"];
-            ["success", "mixed", "fail"].forEach(key => {
+            let lista;
+            if (Object.keys(rr).length === 3) {
+                lista = ["success", "partial", "fail"];
+            } else {
+                lista = ["success", "fail"];
+            }
+            lista.forEach(key => {
                 if (!rr[key]) {
                     erros.push(
-                        `Cena "${cenaID}" requer "roll-results.${key}" mas está faltando.`
+                        `Cena "${cenaID}" requer "roll-results.${key}" mas xestá faltando.`
                     );
                 }
             });
+
+            // verificar se cada roll-result.${key} tem:
+            // { text, target, atributos-adicao-jogador, atributos-descontado-jogador }
+            lista.forEach(key => {
+                // se o rr[key] não existe, não adianta validar nada interno
+                if (!rr[key]) return;
+
+                const camposObrigatorios = ["text", "target", "atributos-adicao-jogador", "atributos-descontado-jogador"]
+                camposObrigatorios.forEach(attr => {
+                    // caso seja array, pode ser vazio -> não gerar erro
+                    if (Array.isArray(rr[key][attr])) return;
+
+                    // caso não exista
+                    if (rr[key][attr] == null) {
+                        erros.push(`Cenário de "${key}" requer "${attr}" mas está faltando.`);
+                    }
+                });
+            });
         }
 
-        // se tem "atributos-adicao" e "atributos-punicao" e são listas
-        ["atributos-adicao", "atributos-punicao"].forEach(chave => {
+        // se tem e se são listas
+        // - atributos-adicao-dados
+        // - atributos-descontado-dados
+        ["atributos-adicao-dados", "atributos-descontado-dados"].forEach(chave => {
             // verificar se existe a chave
             if (!cena.hasOwnProperty(chave)) {
                 erros.push(`Cena "${cenaID}" usa dados mas não tem "${chave}".`);
@@ -114,19 +255,30 @@ function cenaEhValida(cena, cenaID) {
     return true;
 }
 
-// atualiza tela ao clicar nas opções
+// atualiza interface ao clicar nas opções
 function escolhaJogador(target) {
-    cenaAtual = target;
-    atualizarTela(target);
+    cenaID = target;
+    cenasVistas.add(target);
+    atualizarInterface(target);
 }
 
 // classificar escolha
-function classificarEscolhaJogador(valorDado) {
-    if (valorDado >= MIN_SUCCESS)
-        return "success";
-    else if (valorDado >= MIN_MIXED)
-        return "mixed";
-    return "fail";
+function classificarEscolhaJogador(valorDado, numEscolhas) {
+    const MIN_SUCCESS = objCena["min-success"] || MIN_SUCCESS_3_CHOICES;
+
+    if (numEscolhas == 3) {
+        // escolha tripla
+        if (valorDado >= MIN_SUCCESS)
+            return "success";
+        else if (valorDado >= MIN_partial_3_CHOICES)
+            return "partial";
+        return "fail";
+    } else {
+        // escolha dupla
+        if (valorDado >= MIN_SUCCESS)
+            return "success";
+        return "fail";
+    }
 }
 
 // rolagem de 2 dados (2d6)
@@ -147,7 +299,7 @@ function rolarOsDados() {
     const { d1, d2, soma } = obterResultadoDados();
     atualizarAtributosAdicionaisEPunicao();
     const numPontosAdicionais = atributosAdicao.reduce((acc, curr) => acc + (jogador[curr] || 0), 0);
-    const numPontosPunicao = atributosPunicao.reduce((acc, curr) => acc + (jogador[curr] || 0), 0);
+    const numPontosPunicao = atributosDescontado.reduce((acc, curr) => acc + (jogador[curr] || 0), 0);
     somaTotal = (soma + numPontosAdicionais) - numPontosPunicao;
     divResultDados.innerText = `${d1} + ${d2} = ${somaTotal}`;
     btnRolarDados.disabled = true;
@@ -167,8 +319,8 @@ function rolarOsDados() {
     console.groupEnd();
 
     console.group("%cAtributos que influenciaram negativamente", "color: red; font-weight: bold");
-    console.log(atributosPunicao);
-    atributosPunicao.forEach(attr => {
+    console.log(atributosDescontado);
+    atributosDescontado.forEach(attr => {
         if (jogador[attr] > 0) {
             console.log(`%c${attr}: -${jogador[attr]}`, "color: red; font-weight: bold");
         }
@@ -191,14 +343,19 @@ btnRolarDados.addEventListener("click", () => {
 // ação após rolar os dados
 function acaoAposRolarOsDados() {
     // obtém a cena atual
-    const cena = dados[cenaAtual];
+    const cena = dados_cenas_01_02[cenaID] || dados_cenas_03_04_05[cenaID];
 
     // obtem proximas cenas
     const resultados = cena["roll-results"];
 
+    // obter numero de escolhas
+    const numEscolhas = Object.keys(resultados).length;
+
     // pega a cena de acordo com o valor do dado
-    const classificacaoDado = classificarEscolhaJogador(somaTotal);
+    const classificacaoDado = classificarEscolhaJogador(somaTotal, numEscolhas);
+    statusDecisaoJogador = classificacaoDado;
     const objResultado = resultados[classificacaoDado];
+    alterarAtributosJogadorAposDados();
 
     // excluir aviso
     document.querySelector('#aviso').remove();
@@ -261,7 +418,7 @@ function criarAvisoAtributosQueInfluenciaramResultado() {
 
     // Atributos que diminuem
     let divContentPunicao = '';
-    atributosPunicao.forEach(attr => {
+    atributosDescontado.forEach(attr => {
         if (jogador[attr] > 0) {
             divContentPunicao += `<span class="fs-4">-${jogador[attr]} ${attr}</span>`;
         }
@@ -276,6 +433,12 @@ function criarAvisoAtributosQueInfluenciaramResultado() {
         `;
         divAtributosInfluenciadores.innerHTML += divContentDangerHTML;
     }
+}
+
+// verificar se pode criar botao
+function podeCriarBotao(objButton) {
+    // se a cena nao foi vista ainda pelo jogador, permitir
+    return !cenasVistas.has(objButton.target);
 }
 
 // cria o botao
@@ -295,7 +458,9 @@ function atualizarBotoes(listButtons) {
     divListEscolhas.innerHTML = '';
 
     listButtons.forEach(button => {
-        divListEscolhas.appendChild(criarBotao(button));
+        if (podeCriarBotao(button)) {
+            divListEscolhas.appendChild(criarBotao(button));
+        }
     })
 }
 
@@ -310,44 +475,45 @@ function atualizarBotaoDados() {
     btnRolarDados.disabled = false;
 }
 
-// atualizar tela
-function atualizarTela(cenaID) {
+// atualizar interface
+function atualizarInterface(cenaID) {
     // excluir avisos dos atributos nos dados
     divAtributosInfluenciadores.innerHTML = '';
+    divAlteracoesAtributosJogador.innerHTML = '';
 
-    // atualiza a tela com novos valores
-    atualizarAtributosJogador();
+    // atualiza a interface com novos valores
+    atualizarAtributosJogadorNaInterface();
 
     // atualizar botao dos dados
     atualizarBotaoDados();
 
     // obtém a cena atual
-    objCenaAtual = dados_cenas_01_02[cenaID] || dados_cenas_03_04_05[cenaID];
+    objCena = dados_cenas_01_02[cenaID] || dados_cenas_03_04_05[cenaID];
 
     console.log('cenaID: ', cenaID);
 
     // validar cena
-    if (!cenaEhValida(objCenaAtual, cenaID)) return;
+    if (!cenaEhValida(objCena, cenaID)) return;
 
     // atualizar título
-    divH1NomeCena.textContent = objCenaAtual.title;
+    divH1NomeCena.textContent = objCena.title;
 
     // atualizar descrição
-    divDescricao.innerHTML = objCenaAtual.text.replace(/\n/g, "<br/>");
+    divDescricao.innerHTML = objCena.text.replace(/\n/g, "<br/>");
 
     // verifica se usa dados
-    const cenaUsaDados = objCenaAtual["roll-dices"];
+    const cenaUsaDados = objCena["roll-dices"];
     if (cenaUsaDados) {
         divDescricao.appendChild(criarAvisoEsperandoJogarDados());
     }
 
     // atualizar botões de escolhas
-    atualizarBotoes(objCenaAtual["choices"]);
+    atualizarBotoes(objCena["choices"]);
 
     // flag para exbir ou não os dados
     exibirSessaoDados(cenaUsaDados);
 }
 
 // começar
-atualizarTela(cenaAtual);
+atualizarInterface(cenaID);
 

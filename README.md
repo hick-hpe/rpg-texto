@@ -21,7 +21,7 @@ As cenas foram estruturadas no seguinte formato:
                 "text:": "Texto para 10+",
                 "target": "Próxima cena"
             },
-            "mixed": {
+            "partial": {
                 "text": "Texto para 7-9",
                 "target": "Próxima cena"
             },
@@ -49,7 +49,7 @@ Pode ser uma descrição, diálogos ou instruções.
 - `roll-results`: Usado somente quando roll-dices: true.
 Cada resultado define para qual cena o jogador vai dependendo da rolagem.
     - `success`: Cena que ocorre se o jogador tirar um resultado alto/bom no dado.
-    - `mixed`: Cena que ocorre quando o jogador teve um sucesso parcial.
+    - `partial`: Cena que ocorre quando o jogador teve um sucesso parcial.
     - `fail`: Cena para quando o jogador falha completamente.
 
 ## Link

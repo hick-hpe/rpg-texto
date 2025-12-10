@@ -1,1 +1,4 @@
-mudar "dados" para "dados1" e add "dados2"
+mudancas
+
+dialogos:
+- Nome: fala

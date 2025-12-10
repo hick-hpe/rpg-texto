@@ -2,12 +2,20 @@
 localStorage.setItem("jogador", "");
 
 let jogador = {
-    investigacao: 2,
+    investigacao: 1,
     intelecto: 1,
     percepcao: 1,
     confusao: 1,
-    social: 2
+    social: 1
 };
+
+const atributosFormatados = {
+    "investigacao": "Investigação",
+    "intelecto": "Intelecto",
+    "percepcao": "Percepção",
+    "confusao": "Confusão",
+    "social": "Social",
+}
 
 let pontosDisponiveis = 5;
 
@@ -34,7 +42,7 @@ function atualizarTela() {
         linha.className = "attr-row";
 
         linha.innerHTML = `
-          <span class="attr-name">${atributo}</span>
+          <span class="attr-name">${atributosFormatados[atributo]}</span>
           <button class="btn btn-sm btn-light" ${!podeAlterar ? "disabled" : ""} data-attr="${atributo}" data-op="minus">−</button>
           <span class="attr-value">${valor}</span>
           <button class="btn btn-sm btn-light" ${!podeAlterar ? "disabled" : ""} data-attr="${atributo}" data-op="plus">+</button>
