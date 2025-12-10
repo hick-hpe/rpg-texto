@@ -68,6 +68,8 @@ const dados_cenas_04_05 = {
                 "atributos-descontado-jogador": []
             }
         },
+        "atributos-adicao-dados": [],
+        "atributos-descontado-dados": []
     },
 
     // sucesso-conversar-vizinhos-bairro
@@ -102,14 +104,30 @@ const dados_cenas_04_05 = {
                 “Ele sempre aparece com brinquedos verdes… fantasia, eu acho.”
 
                 As pessoas apontam direções diferentes.`,
-        "choices": [],
+        "choices": [
+            {
+                "text": "Procurar pistas físicas",
+                "target": "procurar-pistas-fisicas",
+            },
+            {
+                "text": "Tentar localizar a casa do garoto",
+                "target": "localizar-casa-garoto",
+            }
+        ],
         "roll-dices": false
     },
 
     // falha-conversar-vizinhos-bairro
     "falha-conversar-vizinhos-bairro": {
         "title": "Cena 4: Investigação no bairro",
-        "text": "",
+        "text": `As pessoas estão ocupadas, sem paciência ou simplesmente não sabem.
+                Uma vizinha mais velha fecha a janela quando Thalita tenta puxar papo.
+                Crianças correm sem responder.
+                
+                Um senhor resmungando diz:
+                - “Garoto? Aqui tem um monte. Se vira aí, detective.”
+
+                Thalita se sente perdida e terá de procurar pistas no ambiente.`,
         "choices": [
             {
                 "text": "Procurar pistas físicas",
@@ -164,7 +182,9 @@ const dados_cenas_04_05 = {
                 "atributos-descontado-jogador": []
             }
         },
-        "min-success": 12
+        "min-success": 12,
+        "atributos-adicao-dados": [],
+        "atributos-descontado-dados": []
     },
 
     // sucesso-procurar-pistas-fisicas
@@ -202,7 +222,7 @@ const dados_cenas_04_05 = {
                 "target": "ir-casa-azul",
             },
             {
-                "text": "Ir para a casa bege-2",
+                "text": "Ir para a casa bege",
                 "target": "ir-casa-bege-2",
             }
         ],
@@ -268,7 +288,9 @@ const dados_cenas_04_05 = {
                 "atributos-descontado-jogador": []
             }
         },
-        "min-success": 12
+        "min-success": 12,
+        "atributos-adicao-dados": [],
+        "atributos-descontado-dados": []
     },
 
     // sucesso-localizar-casa-garoto
@@ -385,8 +407,7 @@ const dados_cenas_04_05 = {
                 “Garoto? Aqui não tem nenhum garoto! Bateu na casa errada!”
                 A porta se fecha na cara dela.
                 Confusa e perdida, Thalita tenta pedir ajuda a outras pessoas, mas agora ninguém colabora.
-                Ela anda em círculos pelo bairro, desperdiçando tempo, até perceber que perdeu completamente o rastro.
-                “Continuar” -> Cena: Final Ruim`,
+                Ela anda em círculos pelo bairro, desperdiçando tempo, até perceber que perdeu completamente o rastro.`,
         "choices": [
             {
                 "text": "Continuar",

@@ -11,17 +11,17 @@ const divAlteracoesAtributosJogador = document.querySelector('#alteracoes-atribu
 
 // variaveis globais
 let somaTotal = 0;
-let MIN_SUCCESS_3_CHOICES = 9;
+let MIN_SUCCESS_3_CHOICES = 10;
 let MIN_partial_3_CHOICES = 6;
 let MIN_SUCCESS_2_CHOICES = 7;
 let cenaID = "introducao";
 // let cenaID = "continuar-examinar-area-loja";
-// let cenaID = "final-bom-caso-resolvido";
+// let cenaID = "investigacao-bairro";
 let localStorageData = localStorage.getItem("jogador");
 if (!localStorageData) {
     window.location.href = 'atributos.html';
 }
-let jogador = JSON.parse(localStorageData)
+let jogador = JSON.parse(localStorageData);
 let objCena;
 let atributosAdicao;
 let atributosDescontado;
@@ -387,7 +387,7 @@ function acaoAposRolarOsDados() {
 function criarGifLoading() {
     const wrapper = document.createElement("div");
     const gif = document.createElement('img');
-    gif.src = 'img/loading.gif'
+    gif.src = '../img/loading.gif'
     gif.width = 30;
     wrapper.appendChild(gif);
     return wrapper;
