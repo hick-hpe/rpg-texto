@@ -26,6 +26,4 @@ O jogo possui múltiplos finais. <br/>
 Será que você conseguirá encontrar todos?
 
 ## 🔗 Link
-Disponível em: [https://rpg-texto-demo-v1.netlify.app/](https://rpg-texto-demo-v1.netlify.app/)
-
-> Pode ser atualizado em breve!
+Disponível em: [https://rpg-misterio-bisteca.netlify.app/](https://rpg-misterio-bisteca.netlify.app/)
