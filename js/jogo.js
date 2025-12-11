@@ -14,8 +14,7 @@ let somaTotal = 0;
 let MIN_SUCCESS_3_CHOICES = 10;
 let MIN_partial_3_CHOICES = 6;
 let MIN_SUCCESS_2_CHOICES = 7;
-// let cenaID = "introducao";
-let cenaID = "final-bom-caso-resolvido";
+let cenaID = "introducao";
 let localStorageData = localStorage.getItem("jogador");
 if (!localStorageData) {
     window.location.href = 'atributos.html';
