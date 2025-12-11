@@ -235,7 +235,7 @@ const dados_cenas_03 = {
         },
         "atributos-adicao-dados": ["percepcao", "social"],
         "atributos-descontado-dados": [],
-        "min-success": 10
+        "min-success": 12
     },
 
     // sucesso-falar-com-anna
@@ -343,7 +343,7 @@ const dados_cenas_03 = {
         },
         "atributos-adicao-dados": ["percepcao", "social"],
         "atributos-descontado-dados": [],
-        "min-success": 10
+        "min-success": 14
     },
 
     // sucesso-falar-com-diego

@@ -15,8 +15,8 @@ let MIN_SUCCESS_3_CHOICES = 10;
 let MIN_partial_3_CHOICES = 6;
 let MIN_SUCCESS_2_CHOICES = 7;
 let cenaID = "introducao";
+// let cenaID = "localizar-casa-garoto";
 // let cenaID = "continuar-examinar-area-loja";
-// let cenaID = "investigacao-bairro";
 let localStorageData = localStorage.getItem("jogador");
 if (!localStorageData) {
     window.location.href = 'atributos.html';

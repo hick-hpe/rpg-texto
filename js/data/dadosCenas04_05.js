@@ -288,7 +288,7 @@ const dados_cenas_04_05 = {
                 "atributos-descontado-jogador": []
             }
         },
-        "min-success": 12,
+        "min-success": 14,
         "atributos-adicao-dados": [],
         "atributos-descontado-dados": []
     },
