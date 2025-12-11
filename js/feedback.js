@@ -1,12 +1,20 @@
 // INICIALIZAR EMAILJS
-emailjs.init(""); // coloque sua public key
+emailjs.init("Hfz6VGmTyhvlAt451"); // coloque sua public key
 
 // IDs do EmailJS
-const SERVICE_ID = "";
-const TEMPLATE_ENVIADO_ID = "";
-const TEMPLATE_RECEBEU_ID = "";
+const SERVICE_ID = "service_iddox08";
+const TEMPLATE_ENVIADO_ID = "template_m1lp306";
+const TEMPLATE_RECEBEU_ID = "template_z2skxfv";
 
 const form = document.getElementById("feedbackForm");
+
+function showModal(title, message) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalBody").innerText = message;
+
+    const modal = new bootstrap.Modal(document.getElementById("modalMsg"));
+    modal.show();
+}
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -14,23 +22,23 @@ form.addEventListener("submit", function (e) {
     // enviando para o jogador
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ENVIADO_ID, form)
         .then(() => {
-            alert("🎉 Feedback enviado com sucesso! Obrigado!");
+            showModal("Enviado!", "🎉 Seu feedback foi enviado para o seu email!");
             form.reset();
         })
         .catch((err) => {
             console.error("Erro:", err);
-            alert("❌ Ocorreu um erro ao enviar. Tente novamente.");
+            showModal("Erro!", "❌ Ocorreu um erro ao enviar para o jogador. Tente novamente.");
         });
-    
-    // enviando para mim
+
+    // enviando para você
     emailjs.sendForm(SERVICE_ID, TEMPLATE_RECEBEU_ID, form)
         .then(() => {
-            alert("🎉 Feedback recebido com sucesso!");
-            form.reset();
+            console.log("Feedback enviado para você também!");
         })
         .catch((err) => {
             console.error("Erro:", err);
-            alert("❌ Ocorreu um erro ao enviar. Tente novamente.");
+            showModal("Erro!", "❌ Não consegui te enviar a cópia do feedback.");
         });
 });
+
 
