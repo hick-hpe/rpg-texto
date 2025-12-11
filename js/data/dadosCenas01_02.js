@@ -99,7 +99,7 @@ const dados_cenas_01_02 = {
         O bairro é simples, com casas antigas, muros baixos e varais com roupas balançando no vento. O céu está nublado — típico de Alvorada.
         Ao chegar, você vê a casa da Dolores:
         
-        <b>Descrição dacas:</b>
+        <b>Descrição da casa:</b>
         A casa é pequena, com paredes amarelas já meio desbotadas e um portão de ferro ligeiramente torto.
         No pátio, há:
         - Um tapete de porta escrito "Lar Doce Lar"

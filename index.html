@@ -2,74 +2,242 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d1220" />
+  <meta name="description"
+    content="Sumiço do Bisteca — RPG textual investigativo ambientado em Alvorada (RS). Tome decisões, siga pistas e descubra vários finais." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" />
 
-  <title>RPG Mistério</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Sumiço do Bisteca — RPG investigativo</title>
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: #16181d;
+      --muted: #9aa0a6;
+      --accent: #2f7bff;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Comic Neue", cursive;
+    }
+
+    html,
+    body {
+      height: 100%;
+      background: var(--bg);
+      color: #fff;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      border-radius: .75rem;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(5, 7, 10, 0.6), rgba(5, 7, 10, 0.6));
+      box-shadow: 0 14px 40px rgba(2, 6, 12, 0.7);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .hero:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 50px rgba(2, 6, 12, 0.8);
+    }
+
+    .hero__media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/7;
+      overflow: hidden;
+    }
+
+    .hero__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.45);
+      transition: transform 12s ease;
+    }
+
+    .hero__media img:hover {
+      transform: scale(1.03);
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 60%, rgba(0, 0, 0, 0.75) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .hero__title {
+      font-size: clamp(1.6rem, 3.6vw, 3rem);
+      margin: 0 0 .25rem;
+      letter-spacing: .6px;
+    }
+
+    .hero__subtitle {
+      margin: 0 0 1rem;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .hero .btn {
+      margin: .15rem;
+      min-width: 160px;
+    }
+
+    /* content */
+    main {
+      padding-top: 1.5rem;
+      padding-bottom: 3rem;
+    }
+
+    .card-info {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border: none;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    /* small helpers */
+    .meta-list li {
+      margin-bottom: .35rem;
+    }
+
+    @media (min-width: 992px) {
+      .hero__overlay {
+        padding: 3rem 4rem;
+      }
+
+      .hero__title {
+        font-size: 3.2rem;
+      }
+
+      .hero__subtitle {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 
-<body class="bg-dark text-light">
+<body>
 
   <div class="container py-5">
 
-    <h1 class="text-center mb-4">🐾 Sumiço do Bisteca</h1>
-    <h3 class="text-center mb-5">🎉 SEJA BEM-VINDO(A)!!!</h3>
+    <!-- HERO -->
+    <section class="hero mb-4" aria-label="Capa do jogo Sumiço do Bisteca">
+      <div class="hero__media">
+        <!-- substitua o src pela sua capa (logo.png) -->
+        <img src="img/logo.png" alt="Capa do jogo: silhueta de cidade com um gato no muro" loading="lazy"
+          onerror="this.style.display='none'">
+        <div class="hero__overlay">
+          <div class="w-100">
+            <h1 class="hero__title">Sumiço do Bisteca</h1>
+            <p class="hero__subtitle">Bem-vindo(a)! Um RPG investigativo — suas escolhas decidem o destino.</p>
 
-    <div class="col-lg-8 mx-auto">
+            <div class="d-flex justify-content-center flex-column flex-sm-row gap-2 mt-3">
+              <a href="views/atributos.html" class="btn btn-primary btn-lg" role="button" aria-pressed="false">Iniciar
+                Jogo</a>
+            </div>
 
-      <!-- Sobre o jogo -->
-      <h4 class="mb-3">🎮 Sobre o jogo</h4>
-      <p>
-        Este é um RPG textual onde o jogador toma decisões que influenciam diretamente o rumo da história.
-        Pense bem, observe cada detalhe… e prepare-se para investigar.
-      </p>
-
-      <!-- Contexto -->
-      <h4 class="mt-4 mb-3">ℹ️ Contexto</h4>
-      <p>
-        A história se passa no interior do Rio Grande do Sul, na cidade de <strong>Alvorada</strong>.
-      </p>
-      <p>
-        Você assume o papel de uma investigadora chamada <strong>Thalita Nunes</strong>, uma profissional com 10 anos de
-        experiência e diversos casos solucionados.
-      </p>
-      <p>
-        Mas, nesta manhã, algo inesperado aconteceu:<br>
-        <strong>Bisteca</strong>, o gato da senhora Dolores, desapareceu misteriosamente.
-      </p>
-
-      <p>
-        Desesperada, ela veio até você aos prantos, implorando para que encontre o Bisteca.
-      </p>
-      <p>
-        Agora, cabe a você descobrir o que aconteceu… antes que seja tarde demais.
-      </p>
-
-      <!-- Finais -->
-      <h4 class="mt-4 mb-3">🎯 Finais</h4>
-      <p>O jogo possui múltiplos finais.</p>
-      <ul>
-        <li>🎉 Alguns felizes</li>
-        <li>😣 Outros… nem tanto</li>
-      </ul>
-      <p><strong>Será que você conseguirá encontrar todos?</strong></p>
-
-      <!-- Botão -->
-      <div class="text-center mt-5">
-        <a href="views/atributos.html" class="btn btn-primary btn-lg">Iniciar Jogo</a>
+            <p class="muted small mt-3 mb-0">Duração média: 5-10 minutos · Rejogabilidade alta (múltiplos finais)</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <p class="text-center text-muted mt-4">Pode ser atualizado em breve!</p>
+    <!-- MAIN CONTENT -->
+    <main class="row justify-content-center">
+      <div class="col-lg-9">
 
-    </div>
+        <div class="card card-info mb-4 p-3">
+          <div class="row g-3 align-items-center">
+            <div class="col-md-9 text-white">
+              <h4 class="mb-1">🎮 Sobre o jogo</h4>
+              <p class="mb-0">RPG textual onde cada escolha influencia a investigação. Observe, questione e decida — o
+                destino do Bisteca depende de você.</p>
+            </div>
+          </div>
+        </div>
+
+        <section class="mb-4">
+          <h5 class="mb-2">ℹ️ Contexto</h5>
+          <!-- <p class="mb-1">A história se passa em <strong>Alvorada</strong> (RS). Você é <strong>Thalita Nunes</strong>, investigadora com 10 anos de experiência.</p>
+          <p class="mb-0">Nesta manhã, <strong>Bisteca</strong>, o gato da senhora Dolores, sumiu sem explicação. Ela pede sua ajuda — e o relógio corre.</p> -->
+
+          <p>
+            A história se passa no interior do Rio Grande do Sul, na cidade de Alvorada.
+          </p>
+
+          <p>
+            Você assume o papel de uma investigadora chamada Thalita Nunes, uma profissional no ramo há 10 anos, com
+          </p>
+          diversos casos solucionados.
+
+          <p>
+            Mas, nesta manhã, algo inesperado aconteceu: <br>
+            Bisteca, o gato da senhora Dolores desapareceu misteriosamente.
+          </p>
+
+          <p>
+            Ela veio até você aos prantos, implorando para que você encontre o Bisteca.
+          </p>
+
+          <p>
+            Agora, cabe a você descobrir o que aconteceu… antes que seja tarde demais.
+          </p>
+        </section>
+
+        <section class="mb-4">
+          <h5 class="mb-2">🎯 Finais</h5>
+          <p class="mb-1">O jogo tem múltiplos finais:</p>
+          <ul class="meta-list mb-0">
+            <li>🎉 Alguns felizes</li>
+            <li>😣 Alguns difíceis</li>
+            <li>🔎 Outros deixam ganchos para novos mistérios</li>
+          </ul>
+        </section>
+
+        <section class="mb-4">
+          <h5 class="mb-2">🔄 Atualizações</h5>
+
+          <p class="mb-1">
+            <div class="muted">Última atualização: <strong>🕐 11:23 - 11/12/2025</strong></div>
+          </p>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="text-center text-muted mt-4">
+      <small class="text-white">© <span id="ano"></span> Sumiço do Bisteca · Feito por Hick · <a href="feedback.html"
+          class="text-white">Enviar feedback</a></small>
+    </footer>
+
   </div>
+
+  <script>
+    // atualiza ano no footer
+    document.getElementById('ano').innerText = new Date().getFullYear();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 
 </html>
