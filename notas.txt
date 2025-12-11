@@ -3,25 +3,4 @@ mudancas
 PADRONIZAR OS DIÁLOGOS:
 - Nome: fala
 
-cena 4:
-segue para a rua das laranjeiras
-
-    - conversar
-    - procurar pistas
-    - localizar
-
-
-Investigação: 5
-Intelecto: 2
-Percepção: 3
-Confusão: 0
-Social: 2
-
-let jogador = {
-    investigacao: 5,
-    intelecto: 2,
-    percepcao: 3,
-    confusao: 0,
-    social: 2
-};
 

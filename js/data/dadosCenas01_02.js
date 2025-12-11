@@ -33,19 +33,20 @@ const dados_cenas_01_02 = {
     },
     "atender-telefone": {
         "title": "Cena 01 - Ligação na delegacia",
-        "text": `Você atende. E do outro lado escuta uma voz trêmula, chorosa e aflita.
+        "text": `Você atende. E do outro lado escuta uma voz trêmula, chorosa e aflita:
 
-        <b>[Dolores]</b> \"A-alô? É a d-delegacia?? Eu preciso de ajuda urgente!\"
-        <b>[Você]</b> \"Sim, senhora, aqui é a investigadora Thalita. O que aconteceu?\"
-        <b>[Dolores]</b> \"É o B-Bisteca! Ele sumiu! Meu gatinho, meu amorzinho, meu pinguinho de açúcar! Ele desapareceu nesta manhã!\"
-        <b>[Você]</b> \"Calma, senhora… quem é Bisteca?\"
-        <b>[Dolores]</b> \"O MEU GATO! O amor da minha vida! Ele nunca some! Nunca! Eu tô desesperada!\"
-        <b>[Você]</b> \"Entendo. A senhora viu alguma coisa estranha? Alguma pista?\"
-        <b>[Dolores]</b> \"Nada! Só acordei, fiz meu chimarrão e… sniff sniff …quando fui dar a ração… a vasilha tava lá, mas o Bisteca…\"meu Deus… o Bisteca não tavaaa…"
-        <b>[Você]</b> \"Certo, dona Dolores. Respire fundo. Eu posso ajudar. Me passe seu endereço.\"
-        <b>[Dolores]</b> \"Rua das Laranjeiras, número 217! Por favor, investigadora, venha logo! Ele deve estar sofrendo!\"
-        <b>[Você]</b> \"Estou a caminho.\"
-        <b>[Dolores]</b> \"Obrigada… obrigada… você é um anjo…\"
+        <b>Dolores:</b> A-alô? É a d-delegacia?? Eu preciso de ajuda urgente!
+        <b>Você:</b> Sim, senhora, aqui é a investigadora Thalita. O que aconteceu?
+        <b>Dolores:</b> É o B-Bisteca! Ele sumiu! Meu gatinho, meu amorzinho, meu pinguinho de açúcar! Ele desapareceu nesta manhã!
+        <b>Você:</b> Calma, senhora… quem é Bisteca?
+        <b>Dolores:</b> O MEU GATO! O amor da minha vida! Ele nunca some! Nunca! Eu tô desesperada!
+        <b>Você:</b> Entendo. A senhora viu alguma coisa estranha? Alguma pista?
+        <b>Dolores:</b> Nada! Só acordei, fiz meu chimarrão e… <b>sniff sniff</b> …quando fui dar a ração… a vasilha tava lá, mas o Bisteca…meu Deus… o Bisteca não tavaaa…
+        <b>Você:</b> Certo, dona Dolores. Respire fundo. Eu posso ajudar. Me passe seu endereço.
+        <b>Dolores:</b> Rua das Laranjeiras, número 217! Por favor, investigadora, venha logo! Ele deve estar sofrendo!
+        <b>Você:</b> Estou a caminho.
+        <b>Dolores:</b> Obrigada… obrigada… você é um anjo…
+
         Ela desliga chorando.
         Você desliga o telefone. Você pega as chaves do seu carro e vai em direção a casa de Dolores.
         `,
@@ -61,23 +62,23 @@ const dados_cenas_01_02 = {
         "title": "Cena 01 - Ligação na delegacia",
         "text": `Você dá um gole no café, fingindo que não ouviu nada.
 
-        [Colega da delegacia] \"Ué, Thalita, você não vai atender??\"
-        <b>[Você]</b> \"Ah, sei lá… pode ser trote. Deixa tocar.\"
+        [Colega da delegacia] "Ué, Thalita, você não vai atender??"
+        <b>Você:</b> "Ah, sei lá… pode ser trote. Deixa tocar."
         O telefone para.
         Dois segundos depois, começa a tocar de novo, mais insistente.
         Você bufa, coloca a xícara na mesa e atende.
         Ligação
-        <b>[Dolores]</b> \"PELO AMOR DE DEUS, ATENDA! EU PRECISO DE AJUDA!!\"
-        <b>[Você]</b> \"…Boa tarde. Investigadora Thalita falando.\"
-        <b>[Dolores]</b> \"O BISTECA SUMIU!! MEU GATINHO LINDO, MEU BEBÊ, O SENHOR TEM QUE ME AJUDAR!!\"
-        <b>[Você]</b> \"Certo, senhora… vamos com calma. Quem é Bisteca?\"
-        <b>[Dolores]</b> \"O MEU GATO!! O GATO MAIS PERFEITO QUE EXISTE!!\"
-        <b>[Você]</b> \"Entendo. A senhora viu alguma coisa estranha? Alguma pista?\"
-        <b>[Dolores]</b> \"Nada! Só acordei, fiz meu chimarrão e… sniff sniff …quando fui dar a ração… a vasilha tava lá, mas o Bisteca…\"meu Deus… o Bisteca não tavaaa…"
-        <b>[Você]</b> \"Certo, dona Dolores. Respire fundo. Eu posso ajudar. Me passe seu endereço.\"
-        <b>[Dolores]</b> \"Rua das Laranjeiras, número 217! Por favor, investigadora, venha logo! Ele deve estar sofrendo!\"
-        <b>[Você]</b> \"Estou a caminho.\"
-        <b>[Dolores]</b> \"Obrigada… obrigada… você é um anjo…\"
+        <b>Dolores:</b> "PELO AMOR DE DEUS, ATENDA! EU PRECISO DE AJUDA!!"
+        <b>Você:</b> "…Boa tarde. Investigadora Thalita falando."
+        <b>Dolores:</b> "O BISTECA SUMIU!! MEU GATINHO LINDO, MEU BEBÊ, O SENHOR TEM QUE ME AJUDAR!!"
+        <b>Você:</b> "Certo, senhora… vamos com calma. Quem é Bisteca?"
+        <b>Dolores:</b> "O MEU GATO!! O GATO MAIS PERFEITO QUE EXISTE!!"
+        <b>Você:</b> "Entendo. A senhora viu alguma coisa estranha? Alguma pista?"
+        <b>Dolores:</b> "Nada! Só acordei, fiz meu chimarrão e… sniff sniff …quando fui dar a ração… a vasilha tava lá, mas o Bisteca…"meu Deus… o Bisteca não tavaaa…"
+        <b>Você:</b> "Certo, dona Dolores. Respire fundo. Eu posso ajudar. Me passe seu endereço."
+        <b>Dolores:</b> "Rua das Laranjeiras, número 217! Por favor, investigadora, venha logo! Ele deve estar sofrendo!"
+        <b>Você:</b> "Estou a caminho."
+        <b>Dolores:</b> "Obrigada… obrigada… você é um anjo…"
         Ela desliga chorando.
         Você desliga o telefone. Você pega as chaves do seu carro e vai em direção a casa de Dolores.
         `,
@@ -98,7 +99,7 @@ const dados_cenas_01_02 = {
         O bairro é simples, com casas antigas, muros baixos e varais com roupas balançando no vento. O céu está nublado — típico de Alvorada.
         Ao chegar, você vê a casa da Dolores:
         
-        <b>Descrição da casa</b>
+        <b>Descrição dacas:</b>
         A casa é pequena, com paredes amarelas já meio desbotadas e um portão de ferro ligeiramente torto.
         No pátio, há:
         - Um tapete de porta escrito "Lar Doce Lar"
@@ -110,20 +111,22 @@ const dados_cenas_01_02 = {
         </ul>
         As janelas estão abertas. A porta está entreaberta.
 
-        <b>Diálogo com dolores</b>
+        <b>Diálogo comdolore:</b>
 
-        <b>[Dolores]</b> Investigadora! Graças a Deus que veio! Entre, entre… eu tô desesperada…
-        <b>[Você]<b/> Calma, dona Dolores. Me conte exatamente o que aconteceu.
-        <b>[Dolores]</b> Eu acordei, fiz meu chimarrão… botei a ração do Bisteca… fui para minha cadeira de balanço…mas… quando chamei ele… nada. Nem um miado. Isso nunca aconteceu antes!
+        <b>Dolores:</b> Investigadora! Graças a Deus que veio! Entre, entre… eu tô desesperada…
+        <b>Você:<b/> Calma, dona Dolores. Me conte exatamente o que aconteceu.
+        <b>Dolores:</b> Eu acordei, fiz meu chimarrão… botei a ração do Bisteca… fui para minha cadeira de balanço…mas… quando chamei ele… nada. Nem um miado. Isso nunca aconteceu antes!
         Ela limpa as lágrimas com o lenço.
-        <b>[Você]<b/> A senhora ouviu algum barulho durante a madrugada?
-        <b>[Dolores]</b> Ouvi sim… um barulho no portão… como se alguém tivesse mexido… mas pensei que fosse o vento!
+        <b>Você:<b/> A senhora ouviu algum barulho durante a madrugada?
+        <b>Dolores:</b> Ouvi sim… um barulho no portão… como se alguémE há algo mais: marcas na terra, mas você tem dificuldade em interpretá-las completamente tivesse mexido… mas pensei que fosse o vento!
         Vocês ouvem do outro lado da rua, a voz do vizinho:
-        [Vizinho] Parem com essa choradeira, foi só um gato!!
+        <b>Vizinho:</b> Parem com essa choradeira, foi só um gato!!
         Ele fecha a porta e volta para dentro de casa. 
-        [Thalita] Quem é ele?
-        Dolores responde com desgosto.
-        <b>[Dolores]</b>  Ah, aquele? É só meu vizinho, ele odeia gatos.
+        <b>Thalita:</b> Quem é ele?
+        
+        <i>Dolores responde com desgosto.</i>
+        
+        <b>Dolores:</b>  Ah, aquele? É só meu vizinho, ele odeia gatos.
 
         O que vai fazer?
         `,
@@ -323,16 +326,12 @@ const dados_cenas_01_02 = {
                 
                 A sequência indica algo rápido, leve e… pequeno o suficiente para escalar.
                 Dolores toca seu braço, preocupada:
-                [Dolores] "Eu ouvi uns passos correndo aqui ontem… mas achei que fosse algum cachorro do vizinho."
+                <b>Dolores:</b> Eu ouvi uns passos correndo aqui ontem… mas achei que fosse algum cachorro do vizinho.
                 
                 Você sabe que não eram de cachorro.
                 Aquilo parece… pegada de fantasia infantil, daquelas com pés enormes de dinossauro.
                 Mas quem estaria fantasiado, correndo pelo quintal da Dolores?`,
         "choices": [
-            {
-                "text": "Ir à loja da Dona Marisa",
-                "target": "loja-marisa"
-            },
             {
                 "text": "Examinar o portão",
                 "target": "examinar-portao"
@@ -358,6 +357,7 @@ const dados_cenas_01_02 = {
         "text": `Você examina a tigela.
                 Ela foi empurrada — isso é claro.
                 E há algo mais: marcas na terra, mas você tem dificuldade em interpretá-las completamente.
+                
                 São pegadas… estranhas.
                 Parecem grandes e com três pontas, mas você não consegue identificar se são de animal, criança ou objeto.
                 Sua percepção ajuda o suficiente para notar o padrão:
@@ -365,15 +365,13 @@ const dados_cenas_01_02 = {
                 passam pela tigela
                 e seguem para o muro.
                 Mas sua confusão te atrapalha:
+                
                 as pegadas parecem mudar de forma conforme você olha.
+                
                 Dolores, percebendo seu foco, diz:
-                [Dolores] "Eu ouvi uns passinhos correndo aqui… mas não sei se era cachorro, criança… sei lá."
+                <b>Dolores:</b> Eu ouvi uns passinhos correndo aqui… mas não sei se era cachorro, criança… sei lá.
                 Você percebe que existe alguém ou algo envolvido — mas não consegue montar o quadro completo ainda.`,
         "choices": [
-            {
-                "text": "Ir à loja da Dona Marisa",
-                "target": "loja-marisa"
-            },
             {
                 "text": "Examinar o portão",
                 "target": "examinar-portao"
@@ -403,10 +401,10 @@ const dados_cenas_01_02 = {
                 Você nem percebe como um padrão — parecem só marcações aleatórias de pássaro ou de vento.
                 Nada demais.
                 Dolores, tentando ajudar, pega algo no bolso:
-                [Dolores] "Mas… olha essa pegada grande que ficou aqui no canto! Não parece de cachorro… nem de gato…"
+                <b>Dolores:</b> Mas… olha essa pegada grande que ficou aqui no canto! Não parece de cachorro… nem de gato…
                 Você olha rapidamente e dá de ombros.
                 Mas Dolores está desesperada:
-                [Dolores] "A Dona Marisa vende uns brinquedos desses de dinossauro pra criança… talvez alguém tenha passado aqui! Vai lá falar com ela, por favor!"
+                <b>Dolores:</b> A Dona Marisa vende uns brinquedos desses de dinossauro pra criança… talvez alguém tenha passado aqui! Vai lá falar com ela, por favor!
                 Mesmo sem entender nada, você acaba sendo praticamente empurrada para a pet shop.`,
         "choices": [
             {
@@ -481,20 +479,19 @@ const dados_cenas_01_02 = {
         "text": `Você examina o quintal com atenção cuidadosa, e seus olhos treinados captam detalhes que uma pessoa comum jamais veria.
                 Entre os montes de terra remexida, você encontra algo peculiar:
                 um adesivo infantil rasgado, metade enterrado na terra.
+                
                 Mesmo sujo, o desenho ainda é visível — um dinossauro verde sorrindo, daqueles adesivos baratos que crianças colam em todo lugar.
                 Mas o que realmente se destaca para você é o que quase todos ignorariam:
                 Um segundo fragmento microscópico do adesivo, a alguns centímetros.
+                
                 A marca leve de um joelho pequeno, pressionando a terra.
                 A direção da passada curta, interrompida, como se a criança tivesse parado bruscamente.
+                
                 Dolores confirma:
                 "Eu não tenho crianças aqui… e nunca vi esse adesivo."
                 Seu instinto se afirma:
                 Uma criança esteve ali — recentemente — e estava com pressa.`,
         "choices": [
-            {
-                "text": "Ir à loja da Dona Marisa",
-                "target": "loja-marisa"
-            },
             {
                 "text": "Examinar o portão",
                 "target": "examinar-portao"
@@ -596,7 +593,7 @@ const dados_cenas_01_02 = {
         "roll-results": {
             "success": {
                 "text": "Você identifica algo incomum",
-                "target": "sucesso-observar-quintal",
+                "target": "sucesso-perguntar-mais",
                 "atributos-adicao-jogador": [
                     {
                         "attr": "investigacao",
@@ -616,7 +613,7 @@ const dados_cenas_01_02 = {
             },
             "partial": {
                 "text": "Uma pista parcial",
-                "target": "parcial-observar-quintal",
+                "target": "parcial-perguntar-mais",
                 "atributos-adicao-jogador": [],
                 "atributos-descontado-jogador": [
                     {
@@ -627,7 +624,7 @@ const dados_cenas_01_02 = {
             },
             "fail": {
                 "text": "Você interpreta errado",
-                "target": "falha-observar-quintal",
+                "target": "falha-perguntar-mais",
                 "atributos-adicao-jogador": [
                     {
                         "attr": "intelecto",
@@ -798,11 +795,14 @@ const dados_cenas_01_02 = {
         "title": "Cena 02 - Casa de Dolores",
         "text": `Você se aproxima da fechadura com cuidado, examinando cada detalhe: a borda do metal, a pintura e o encaixe do mecanismo.
                 Nada ali indica arrombamento: nenhuma marca de chave forçada, nenhum arranhão profundo, nenhuma folga incomum.
+                
                 Mas então você nota algo que alguém distraído jamais veria:
                 Um pequeno pingo de tinta vermelha, quase invisível, perto do encaixe da fechadura.
                 A mesma cor do brinquedinho de ratinho encontrado — ou mencionado por Dolores.
+                
                 É forte demais para ser coincidência.
                 Você rapidamente conecta as pistas: a coisa que passou pelo portão estava em contato com o brinquedo.
+                
                 Alguém — ou algo — bateu ali, mas não com força suficiente para quebrar.
                 Dolores observa você analisar e parece impressionada com sua precisão.`,
         "choices": [
@@ -954,8 +954,8 @@ const dados_cenas_01_02 = {
                 Cor comum… mas combinando perfeitamente com mochilas infantis que você já viu por aí.
                 
                 Combinando tudo, você percebe claramente:
-                ➡️ O arrasto começa na tigela do Bisteca e termina na rua.
-                ➡️ E segue justamente na direção da loja da Dona Marisa.
+                - O arrasto começa na tigela do Bisteca e termina na rua.
+                - E segue justamente na direção da loja da Dona Marisa.
                 
                 É como se a criança tivesse derrubado ração, arrastado algo — talvez o brinquedo — e saído correndo.
                 Você praticamente visualiza a cena acontecendo na sua mente.`,
@@ -990,7 +990,7 @@ const dados_cenas_01_02 = {
                 Percebe o fio preso no portão e pensa:
                 "Isso é de roupa? Mochila? Gato? Difícil dizer…"
                 A única coisa realmente clara é:
-                ➡️ As marcas vão em direção à calçada… mas você não tem certeza para onde depois disso.
+                - As marcas vão em direção à calçada… mas você não tem certeza para onde depois disso.
                 Dolores observa você analisando e pergunta tímida:
                 [Dolores]
                 "Isso significa que alguém passou? Ou… que o Bisteca tentou sair?"
@@ -1057,14 +1057,15 @@ const dados_cenas_01_02 = {
     "conversar-vizinho": {
         "title": "Cena 02 - Casa de Dolores",
         "text": `Você avista um senhor sentado na calçada. Você decide ir falar com ele.
-                [Thalita] Bom dia, senhor! 
-                [Vizinho] Oh, bom dia, como vai??
-                [Thalita] Gostaria de fazer algumas perguntas ao senhor.
-                [Vizinho] Claro, pode perguntar.
-                [Thalita] O gato da senhora Dolores sumiu esta manhã, o senhor lembra de ter visto algo?
-                [Vizinho] Bem, deixe-me ver…hm…Ah, eu vi uma criança correndo aqui mais cedo… parecia estar segurando um bicho. Achei que era um coelho! Hahaha!
-                [Thalita] Um gato branco pode parecer um coelho…
-                [Vizinho] Ele sempre passa naquela lojinha da esquina… deve gostar de animais.`,
+                
+                <b>Thalita:</b> Bom dia, senhor! 
+                <b>Vizinho:</b> Oh, bom dia, como vai??
+                <b>Thalita:</b> Gostaria de fazer algumas perguntas ao senhor.
+                <b>Vizinho:</b> Claro, pode perguntar.
+                <b>Thalita:</b> O gato da senhora Dolores sumiu esta manhã, o senhor lembra de ter visto algo?
+                <b>Vizinho:</b> Bem, deixe-me ver…hm…Ah, eu vi uma criança correndo aqui mais cedo… parecia estar segurando um bicho. Achei que era um coelho! Hahaha!
+                <b>Thalita:</b> Um gato branco pode parecer um coelho…
+                <b>Vizinho:</b> Ele sempre passa naquela lojinha da esquina… deve gostar de animais.`,
         "choices": [
             {
                 "text": "Examinar a fechadura do portão",
@@ -1125,11 +1126,14 @@ const dados_cenas_01_02 = {
     "sucesso-procurar-pegadas": {
         "title": "Cena 02 - Casa de Dolores",
         "text": `Você examina o muro com cuidado, passando a mão pelo reboco irregular.
-                Logo percebe algo que não é comum:
-                ➡️ Arranhões verticais, muito mais altos do que o Bisteca conseguiria alcançar.
+                
+        Logo percebe algo que não é comum:
+                - Arranhões verticais, muito mais altos do que o Bisteca conseguiria alcançar.
                 Isso indica claramente que alguém levantou o gato — ou levantou alguma coisa — até o topo do muro.
+                
                 Ao olhar mais de perto, encontra um segundo detalhe:
-                ➡️ Um pó fino e cinzento preso nas pontas dos arranhões, igual ao pó da calçada próxima à pet shop da Marisa.
+                - Um pó fino e cinzento preso nas pontas dos arranhões, igual ao pó da calçada próxima à pet shop da Marisa.
+                
                 É como se algo tivesse sido arrastado ou apoiado lá antes de vir parar aqui.
                 Você não tem mais dúvidas: o caminho aponta para a loja`,
         "choices": [
@@ -1145,12 +1149,13 @@ const dados_cenas_01_02 = {
         "title": "Cena 02 - Casa de Dolores",
         "text": `Você observa os arranhões no muro.
                 Eles são recentes… talvez.
+                
                 Ou talvez só pareçam recentes por causa da luz.
                 Enquanto tenta decidir, algo chama sua atenção no chão, encostado na base do muro:
-                ➡️ Um pedacinho de plástico colorido, provavelmente vindo de um brinquedo infantil.
+                - Um pedacinho de plástico colorido, provavelmente vindo de um brinquedo infantil.
                 Dolores também se inclina para olhar e murmura:
-                [Dolores]
-                "Eu já vi desses… a loja da esquina vende um monte de brinquedinho barato assim."
+                
+                <b>Dolores:<b/> "Eu já vi desses… a loja da esquina vende um monte de brinquedinho barato assim."
                 Não é prova definitiva, mas é mais um indício apontando para o mesmo lugar.`,
         "choices": [
             {

@@ -5,18 +5,18 @@ const dados_cenas_03 = {
     "loja-marisa": {
         "title": "Cena 3: Pet Shop da Marisa",
         "text": `Na rua Oeste, a porta toca o sininho assim que Thalita entra. O cheiro de ração fresca e sachês de peixe invade o ar. Marisa está arrumando uma prateleira de brinquedos quando vê a investigadora.
-                [Thalita] Bom dia, dona Marisa.
-                [Marisa] Bom dia, em que posso ajuda-lá??
-                [Thalita] Estou investigando um caso… é sobre o gato da dona Dolores—
-                [Marisa] interrompendo, quase derrubando um saco de ração
+                <b>Thalita: </b> Bom dia, dona Marisa.
+                <b>Marisa: </b> Bom dia, em que posso ajuda-lá??
+                <b>Thalita: </b> Estou investigando um caso… é sobre o gato da dona Dolores—
+                <b>Marisa: </b> interrompendo, quase derrubando um saco de ração
                 BISTECAA!! O QUE TEM ELE??
-                [Thalita] surpresa
+                <b>Thalita: </b> surpresa
                 Ué… você conhece?
-                [Marisa] Claro que conheço! A Dolores é minha amigona. O Bisteca sempre aparece por aqui, um amorzinho! Só dá trabalho quando tenta subir no aquário…
-                [Thalita] Imagino. Mas… ele desapareceu hoje. Você sabe de algo a respeito?
-                [Marisa] Ah, sumiu? Tadinho… [pensa] Olha, ele costuma dar voltas por aqui sim. Os gatos do bairro adoram essa área: tem sombra, tem cheiro de comida, tem caixas… sabe como é.
-                [Thalita] E você tem alguma ideia de por que isso acontece com tanta frequência? 
-                [Marisa] Então… olha para os lados e baixa o tom
+                <b>Marisa: </b> Claro que conheço! A Dolores é minha amigona. O Bisteca sempre aparece por aqui, um amorzinho! Só dá trabalho quando tenta subir no aquário…
+                <b>Thalita: </b> Imagino. Mas… ele desapareceu hoje. Você sabe de algo a respeito?
+                <b>Marisa: </b> Ah, sumiu? Tadinho… [pensa] Olha, ele costuma dar voltas por aqui sim. Os gatos do bairro adoram essa área: tem sombra, tem cheiro de comida, tem caixas… sabe como é.
+                <b>Thalita: </b> E você tem alguma ideia de por que isso acontece com tanta frequência? 
+                <b>Marisa: </b> Então… olha para os lados e baixa o tom
                 Tem um grupo de crianças aqui da rua que vive passando na porta.`,
         "choices": [
             {
@@ -363,8 +363,8 @@ const dados_cenas_03 = {
                 E… deixou cair um fiozinho azul. Acho que era da mochila.”`,
         "choices": [
             {
-                "text": "Falar com Diego",
-                "target": "falar-com-diego"
+                "text": "Falar com Anna",
+                "target": "falar-com-anna"
             },
             {
                 "text": "Voltar à casa da Dona Dolores",
@@ -387,8 +387,12 @@ const dados_cenas_03 = {
                 “Eles sempre vão pela rua da pracinha… acho.”`,
         "choices": [
             {
-                "text": "Falar com Diego",
-                "target": "falar-com-diego"
+                "text": "Falar com Anna",
+                "target": "falar-com-anna"
+            },
+            {
+                "text": "Voltar à casa da Dona Dolores",
+                "target": "voltar-casa-dolores"
             }
         ],
         "roll-dices": false
@@ -636,7 +640,7 @@ const dados_cenas_03 = {
                 Dolores quase dormindo em pé:
                 — Deixa eu pensar… ah… elas vão pra Rua do Armazém Antigo… acho.
                 Pausa.
-                — Ou era a… pracinha? Ai minha filha… tô com a cabeça uma farofa…
+                — Ou era a… pracinha? Ai minha filha… tô com a cabeça uma bagunça...
                 `,
         "choices": [
             {
@@ -665,7 +669,8 @@ const dados_cenas_03 = {
         "roll-results": {
             "success": {
                 "text": "Você descobre a rua certa",
-                "target": "sucesso-descobrir-rua-certa",
+                // "target": "sucesso-descobrir-rua-certa",
+                "target": "acreditar-na-marisa",
                 "atributos-adicao-jogador": [],
                 "atributos-descontado-jogador": [],
             },
@@ -680,12 +685,13 @@ const dados_cenas_03 = {
         "atributos-descontado-dados": [],
     },
     // sucesso-descobrir-rua-certa
-    "sucesso-descobrir-rua-certa": {
-        "title": "Cena 3: Pet Shop da Marisa",
-        "text": "Você descobre o caminho certo :D",
-        "choices": [],
-        "roll-dices": false
-    },
+    // acreditar-na-marisa
+    // "sucesso-descobrir-rua-certa": {
+    //     "title": "Cena 3: Pet Shop da Marisa",
+    //     "text": "Você descobre o caminho certo :D",
+    //     "choices": [],
+    //     "roll-dices": false
+    // },
     // falha-descobrir-rua-certa
     "falha-descobrir-rua-certa": {
         "title": "Cena 3: Pet Shop da Marisa",
@@ -731,7 +737,7 @@ const dados_cenas_03 = {
                 "atributos-descontado-jogador": [],
             },
             "fail": {
-                "text": "Você não consegue saber qual é",
+                "text": "Você decide continuar",
                 "target": "falha-rua-errada",
                 "atributos-adicao-jogador": [
                     {
@@ -758,7 +764,7 @@ const dados_cenas_03 = {
                 Ela caminha devagar, observando cada detalhe, procurando qualquer sinal que possa levar ao Bisteca.`,
         "choices": [
             {
-                "text": "Ir para a rua certa",
+                "text": "Continuar",
                 "target": "investigacao-bairro"
             }
         ],
@@ -787,13 +793,28 @@ const dados_cenas_03 = {
     // falha-rua-errada
     "falha-rua-errada": {
         "title": "Cena 3: Pet Shop da Marisa",
-        "text": "Você perde alguns minutos a mais, insistindo à toa.",
-        "choices": [
-            {
-                "text": "Ir para a rua certa",
-                "target": "investigacao-bairro"
-            }
-        ],
+        "text": `Ao insistir na rua errada, Thalita passa por um trecho mais isolado.
+                Enquanto tenta se orientar, ela sente uma presença.
+
+                Uma janela se abre.
+
+                Um homem observa Thalita — imóvel, silencioso.
+                Seus olhos seguem cada passo dela.
+
+                Quando ela percebe, já é tarde.
+                Ele sai pela porta da casa, caminhando lentamente na direção dela.
+
+                <b>Homem:</b> …Você está perdida?
+
+                Há algo no tom dele que faz cada alarme interno disparar.
+                Thalita sente o coração acelerar, um medo instintivo subindo pela coluna.
+
+                Ela tenta reagir — mas o homem dá mais um passo, rápido demais.
+
+                A tela escurece.
+                
+                > <a href='/atributos.html' class="text-white">Reiniciar Jogo</a>`,
+        "choices": [],
         "roll-dices": false
     },
 }

@@ -14,9 +14,8 @@ let somaTotal = 0;
 let MIN_SUCCESS_3_CHOICES = 10;
 let MIN_partial_3_CHOICES = 6;
 let MIN_SUCCESS_2_CHOICES = 7;
-let cenaID = "introducao";
-// let cenaID = "localizar-casa-garoto";
-// let cenaID = "continuar-examinar-area-loja";
+// let cenaID = "introducao";
+let cenaID = "falha-rua-errada";
 let localStorageData = localStorage.getItem("jogador");
 if (!localStorageData) {
     window.location.href = 'atributos.html';
@@ -81,7 +80,7 @@ function alterarAtributosJogador() {
     if (Object.hasOwn(objCena, "atributos-less")) {
         const atributosLess = objCena["atributos-less"];
         Object.keys(atributosLess).forEach(attr => {
-            if (jogador[attr]) {
+            if (jogador[attr] && jogador[attr] > 0) {
                 jogador[attr] -= atributosLess[attr];
                 console.log('ATTR-LESS: ', attr);
             }
@@ -143,7 +142,9 @@ function alterarAtributosJogadorAposDados() {
             }
 
             const antes = jogador[attr];
-            jogador[attr] -= value;
+            if (jogador[attr] > 0) {
+                jogador[attr] -= value;
+            }
 
             console.log(
                 `[LESS] ${attr}: ${antes} - ${value} → ${jogador[attr]}`

@@ -68,7 +68,7 @@ const dados_cenas_04_05 = {
                 "atributos-descontado-jogador": []
             }
         },
-        "atributos-adicao-dados": [],
+        "atributos-adicao-dados": ["social"],
         "atributos-descontado-dados": []
     },
 
@@ -432,8 +432,7 @@ const dados_cenas_04_05 = {
                 “Garoto? Aqui não tem nenhum garoto! Bateu na casa errada!”
                 A porta se fecha na cara dela.
                 Confusa e perdida, Thalita tenta pedir ajuda a outras pessoas, mas agora ninguém colabora.
-                Ela anda em círculos pelo bairro, desperdiçando tempo, até perceber que perdeu completamente o rastro.
-                “Continuar” -> Cena: Final Ruim`,
+                Ela anda em círculos pelo bairro, desperdiçando tempo, até perceber que perdeu completamente o rastro.`,
         "choices": [
             {
                 "text": "Continuar",
@@ -454,14 +453,15 @@ const dados_cenas_04_05 = {
                 As pistas esfriam. O rastro se perde.
                 
                 Thalita sente o peso do fracasso.
-                Thalita (pensamento):
-                “Droga… eu falhei. O gato pode estar em qualquer lugar agora…”
+                <i>Thalita pensa consigo mesma:<i>
+                "Droga… eu falhei. O gato pode estar em qualquer lugar agora…"
                 Ela retorna à casa de Dolores.
                 Dolores vê Thalita chegando de mãos vazias, o rosto cansado e derrotado.
                 
-                Dolores (desesperada):
-                “Você… não encontrou?
-                Bisteca… meu amor… onde você está…”
+                <i>Dolores está desesperada</i>:
+                Dolores: Você… não encontrou?
+                Bisteca… meu amor… onde você está…
+
                 Dolores começa a chorar, e Thalita não consegue encará-la.
                 O caso termina não resolvido. As pistas sumiram. As possibilidades se fecharam.
                 Thalita volta para casa com a sensação amarga de ter decepcionado alguém que confiou nela.
@@ -484,8 +484,8 @@ const dados_cenas_04_05 = {
                 A porta se abre devagar.
                 É um garoto de uns oito anos, cabelo bagunçado, usando uma fantasia verde com um rabo de dinossauro de tecido preso com fita.
                 Quando ele vê Thalita, engole seco.
-                [Thalita]
-                Oi, tudo bem? Sou investigadora. Você poderia me responder uma coisa rapidinho?
+                
+                <b>Thalita:</b>Oi, tudo bem? Sou investigadora. Você poderia me responder uma coisa rapidinho?
                 Ele hesita, mas abre a porta só o suficiente para ela ver o cômodo atrás.
                 E lá está.
                 O gato Bisteca — deitado na cama
@@ -493,8 +493,8 @@ const dados_cenas_04_05 = {
                 Está dormindo tranquilo, barriga para cima, ronronando.
                 Ao lado dele, um ratinho de brinquedo — o mesmo tipo encontrado no quintal da Dolores.
                 O garoto suspira, derrotado.
-                [Garoto]
-                Tá bom… eu falo…
+                
+                <b>Garoto:</b> Tá bom… eu falo…
                 Ele aperta o rabo da fantasia nas mãos, nervoso.`,
         "choices": [
             {
@@ -509,32 +509,28 @@ const dados_cenas_04_05 = {
     "final-bom-confissao": {
         "title": "Cena Final - A Confissão",
         "text": `O garoto engole em seco, apertando o brinquedinho entre os dedos.
-                [Garoto]
-                “Eu… eu achei o gato na rua… ali perto da casa da dona Dolores.
+                
+                <b>Garoto:</b> “Eu… eu achei o gato na rua… ali perto da casa da dona Dolores.
                 Ele tava seguindo meu brinquedo…”
                 Ele ergue o ratinho de borracha, meio quebrado, como se fosse uma prova.
                 
-                [Garoto]
-                “Eu só queria brincar mais um pouco… eu juro!
+                <b>Garoto:</b> “Eu só queria brincar mais um pouco… eu juro!
                 Ele me seguiu, eu dei um pouco da minha ração…
                 Eu ia devolver, de verdade!
                 É que… ele gostou daqui…”
                 Os olhos dele começam a marejar.
                 Ele vira o rosto, esfregando o braço para tentar esconder as lágrimas — mas sua voz falha.
                 
-                [Garoto]
-                “Eu… não queria deixar ninguém triste…”
+                <b>Garoto:</b> “Eu… não queria deixar ninguém triste…”
                 Thalita observa a cena, e por um instante a tensão da busca dá lugar a algo mais leve:
                 não havia maldade ali, apenas ingenuidade.
                 Antes que o silêncio pese demais, ela se aproxima com calma.
                 
-                [Thalita]
-                “Ei… você fez a coisa certa me contando. A dona Dolores só ficou preocupada.
+                <b>Thalita:</b> “Ei… você fez a coisa certa me contando. A dona Dolores só ficou preocupada.
                 E você cuidou bem do Bisteca. Isso importa.”
                 O garoto ergue os olhos, tímido, mas aliviado por não ser repreendido.
                 
-                [Thalita]
-                “Vamos levar ele de volta? Você pode vir junto, se quiser.”
+                <b>Thalita:</b> “Vamos levar ele de volta? Você pode vir junto, se quiser.”
                 Ele hesita… mas então balança a cabeça em concordância.
                 Eles caminham juntos até a porta, o garoto respirando fundo, se preparando para enfrentar Dolores — não como um ladrão, mas como uma criança que cometeu um erro e está tentando consertá-lo.
                 A cena segue naturalmente até o reencontro, sem terminar abruptamente.`,
@@ -557,26 +553,20 @@ const dados_cenas_04_05 = {
 
                 No momento em que ela vê o gato, o mundo dela desaba.
 
-                [Dolores] (rompendo em choro)
-                “BISTECA!! Meu amorzinho!!”
+                <i>Dolores não conteve o choro</i>
+                <b>Dolores:</b> “BISTECA!! Meu amorzinho!!”
 
                 Ela quase tropeça na pressa de alcançá-lo.
                 Bisteca levanta a cabeça, solta um miado carinhoso e se aconchega no ombro dela, como se estivesse dizendo “voltei pra casa”.
 
                 Dolores o aperta com cuidado, as mãos tremendo, inundada de alívio.
-
-                [Dolores]
-                “Meu Deus… eu achei que nunca mais ia ver você… obrigada, Thalita… obrigada…”
+                <b>Dolores:</b> “Meu Deus… eu achei que nunca mais ia ver você… obrigada, Thalita… obrigada…”
 
                 Ela inspira fundo, tentando se recompor.
-
-                [Dolores]
-                “Ele… ele tá bem? Nada machucou ele, né?”
+                <b>Dolores:</b> “Ele… ele tá bem? Nada machucou ele, né?”
 
                 Thalita sorri e faz um gesto tranquilo com a mão.
-
-                [Thalita]
-                “Ele está ótimo. Só… teve uma aventura um pouco longa demais.”
+                <b>Thalita:</b> “Ele está ótimo. Só… teve uma aventura um pouco longa demais.”
 
                 Dolores ri entre lágrimas — e é então que ela nota o garoto parado atrás.
 
@@ -585,14 +575,12 @@ const dados_cenas_04_05 = {
                 O silêncio pesa por um instante, até Dolores se aproximar devagar.
                 Ela respira fundo, enxuga o rosto e põe uma mão leve no ombro dele.
 
-                [Dolores]
-                “Meu bem… obrigada por ter cuidado dele.
+                <b>Dolores:</b> “Meu bem… obrigada por ter cuidado dele.
                 Só… avisa, tá? Eu quase morri do coração.”
 
                 O garoto finalmente ergue o olhar, tímido, mas mais leve.
-
-                [Garoto]
-                “Desculpa… eu não queria deixar ninguém triste.”
+                
+                <b>Garoto:</b> “Desculpa… eu não queria deixar ninguém triste.”
 
                 Dolores sorri — um sorriso cansado, mas sincero — e afaga o cabelo dele.
 
