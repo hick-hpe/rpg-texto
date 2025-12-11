@@ -468,7 +468,7 @@ const dados_cenas_04_05 = {
 
                 Você fracassou :(
                 
-                > <a href='/atributos.html' class="text-white">Reiniciar Jogo</a>
+                > <a href='views/atributos.html' class="text-white">Reiniciar Jogo</a>
                 `,
         "choices": [],
         "roll-dices": false

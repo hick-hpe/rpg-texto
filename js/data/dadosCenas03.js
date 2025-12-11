@@ -813,7 +813,7 @@ const dados_cenas_03 = {
 
                 A tela escurece.
                 
-                > <a href='/atributos.html' class="text-white">Reiniciar Jogo</a>`,
+                > <a href='views/atributos.html' class="text-white">Reiniciar Jogo</a>`,
         "choices": [],
         "roll-dices": false
     },
