@@ -1,10 +1,10 @@
 // INICIALIZAR EMAILJS
-emailjs.init("Hfz6VGmTyhvlAt451"); // coloque sua public key
+emailjs.init("PULIC_KEY"); // coloque sua public key
 
 // IDs do EmailJS
-const SERVICE_ID = "service_iddox08";
-const TEMPLATE_ENVIADO_ID = "template_m1lp306";
-const TEMPLATE_RECEBEU_ID = "template_z2skxfv";
+const SERVICE_ID = "SERVICE_ID";
+const TEMPLATE_ENVIADO_ID = "TEMPLATE1_ID";
+const TEMPLATE_RECEBEU_ID = "TEMPLATE2_ID";
 
 const form = document.getElementById("feedbackForm");
 
