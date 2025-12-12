@@ -65,6 +65,7 @@ function atualizarAtributosAdicionaisEPunicao() {
 // adicionar/diminuir atributos do jogador
 function alterarAtributosJogador() {
     // aumentar
+    console.log("alteraatrrjog: ", objCena ? Object.hasOwn(objCena, "atributos-add") : null)
     if (Object.hasOwn(objCena, "atributos-add")) {
         const atributosLess = objCena["atributos-add"];
         Object.keys(atributosLess).forEach(attr => {
@@ -496,6 +497,10 @@ function atualizarInterface(cenaID) {
     divAtributosInfluenciadores.innerHTML = '';
     divAlteracoesAtributosJogador.innerHTML = '';
 
+    // obtém a cena atual
+    objCena = buscarCenaPeloID(cenaID);
+    console.log('cenaID: ', cenaID);
+
     // alterar atributos do jogador
     alterarAtributosJogador();
 
@@ -505,10 +510,6 @@ function atualizarInterface(cenaID) {
     // atualizar botao dos dados
     atualizarBotaoDados();
 
-    // obtém a cena atual
-    objCena = buscarCenaPeloID(cenaID);
-
-    console.log('cenaID: ', cenaID);
 
     // validar cena
     if (!cenaEhValida(objCena, cenaID)) return;
