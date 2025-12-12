@@ -14,7 +14,7 @@ let somaTotal = 0;
 let MIN_SUCCESS_3_CHOICES = 10;
 let MIN_partial_3_CHOICES = 6;
 let MIN_SUCCESS_2_CHOICES = 7;
-let cenaID = "introducao";
+let cenaID = "sucesso-perguntar-mais";
 let localStorageData = localStorage.getItem("jogador");
 if (!localStorageData) {
     window.location.href = 'atributos.html';
@@ -64,7 +64,7 @@ function atualizarAtributosAdicionaisEPunicao() {
 
 // adicionar/diminuir atributos do jogador
 function alterarAtributosJogador() {
-    // aumentar??
+    // aumentar
     if (Object.hasOwn(objCena, "atributos-add")) {
         const atributosLess = objCena["atributos-add"];
         Object.keys(atributosLess).forEach(attr => {
@@ -496,6 +496,9 @@ function atualizarInterface(cenaID) {
     divAtributosInfluenciadores.innerHTML = '';
     divAlteracoesAtributosJogador.innerHTML = '';
 
+    // alterar atributos do jogador
+    alterarAtributosJogador();
+
     // atualiza a interface com novos valores
     atualizarAtributosJogadorNaInterface();
 
@@ -529,7 +532,18 @@ function atualizarInterface(cenaID) {
     exibirSessaoDados(cenaUsaDados);
 
     // marcar cena como "vista"
-    cenasVistas.add(cenaID);
+    const value = objCena["appears"];
+
+    // se estiver definido, usa; se não, vira true
+    const marcarCenaComoVista = (value !== null && value !== undefined)
+        ? value
+        : true;
+
+
+    console.log('marcarCenaComoVista: ', marcarCenaComoVista);
+    if (marcarCenaComoVista) {
+        cenasVistas.add(cenaID);
+    }
 
     console.log('cenasVistas: ', cenasVistas);
 }
