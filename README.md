@@ -26,7 +26,7 @@ O jogo possui múltiplos finais. <br/>
 Será que você conseguirá encontrar todos?
 
 ### 🔄 Atualizações
-Última atualização: 🕐 11:23 - 11/12/2025
+Data da última atualização: 🗓️ 11/12/2025
 
 ## 🔗 Link
 Disponível em: [https://rpg-misterio-bisteca.netlify.app/](https://rpg-misterio-bisteca.netlify.app/)
