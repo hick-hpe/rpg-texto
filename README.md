@@ -175,7 +175,7 @@ Para cenas desse tipo, o atributo `roll-dices` sempre deve ser `true`.
             "attr": "atributo",
             "value": 1
         }
-    ```
+        ```
 
     **Nome dos IDs das cenas resultantes**
     Para facilitar identificação e navegação:
@@ -190,7 +190,7 @@ Para cenas desse tipo, o atributo `roll-dices` sempre deve ser `true`.
     - `parcial-teste`
     - `falha-teste`
 
-- **Opcionais**:
+- **Campos Opcionais**:
     - `min-success`: valor mínimo que o jogador precisa atingir para ter sucesso. É opcional, colocado em apenas algumas cenas específicas.
     - `atributos-add`: Atributos adicionados ao jogador ao início da cena (não dependem da rolagem):
         ```json
